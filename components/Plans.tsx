@@ -1,6 +1,6 @@
 import React from 'react';
 import { PLANS } from '../constants';
-import { Check } from 'lucide-react';
+import { Check, AlertCircle } from 'lucide-react';
 import { openWhatsApp } from '../services/whatsappService';
 
 const Plans: React.FC = () => {
@@ -16,7 +16,7 @@ const Plans: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-          {PLANS.map((plan) => (
+          {PLANS.map((plan, index) => (
             <div 
               key={plan.id}
               className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
@@ -30,6 +30,12 @@ const Plans: React.FC = () => {
                   Mais Popular
                 </div>
               )}
+
+              {/* Scarcity Badge */}
+              <div className="mb-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#e63946] bg-red-50 px-3 py-1 rounded-full w-fit">
+                <AlertCircle size={12} />
+                {index % 2 === 0 ? 'Últimas 3 vagas nesta tabela' : 'Preço promocional hoje'}
+              </div>
 
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-colors ${
                 plan.highlight ? 'bg-[#006d77] text-white' : 'bg-gray-200 text-gray-600'
@@ -50,14 +56,14 @@ const Plans: React.FC = () => {
               </ul>
 
               <button
-                onClick={() => openWhatsApp({ name: '', phone: '', email: '', birthDate: '', planType: plan.title, message: 'Gostaria de saber mais sobre este plano.', agreeTerms: true })}
+                onClick={() => openWhatsApp({ name: '', phone: '', email: '', birthDate: '', planType: plan.title, message: `Gostaria de garantir a condição especial do *${plan.title}* antes que acabem as vagas.`, agreeTerms: true })}
                 className={`w-full py-3 px-6 rounded-xl font-bold transition-colors shadow-md hover:shadow-lg ${
                   plan.highlight
                     ? 'bg-[#006d77] text-white hover:bg-[#005a63]'
                     : 'bg-white border-2 border-[#006d77] text-[#006d77] hover:bg-[#006d77] hover:text-white'
                 }`}
               >
-                Solicitar Cotação
+                Garantir Condição Especial
               </button>
             </div>
           ))}

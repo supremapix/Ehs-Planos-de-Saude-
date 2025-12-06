@@ -12,6 +12,8 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import CookieBanner from './components/CookieBanner';
+import LeadMagnet from './components/LeadMagnet';
+import ExitPopup from './components/ExitPopup';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +22,7 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <Benefits />
+        <LeadMagnet />
         <Plans />
         <Urgency />
         <Networks />
@@ -31,6 +34,7 @@ const App: React.FC = () => {
       <Footer />
       <FloatingWhatsApp />
       <CookieBanner />
+      <ExitPopup />
     </div>
   );
 };

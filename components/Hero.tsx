@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Flame } from 'lucide-react';
 import { openWhatsApp } from '../services/whatsappService';
 
 const Hero: React.FC = () => {
@@ -23,9 +23,17 @@ const Hero: React.FC = () => {
         <div className="max-w-4xl text-white space-y-8">
           
           {/* Badge with Slide Down Animation */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#d9ed92] px-5 py-2 rounded-full text-sm font-bold shadow-lg opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
-            <CheckCircle2 size={16} className="text-[#d9ed92]" />
-            <span className="tracking-wide uppercase text-xs sm:text-sm">Planos a partir de R$ 150/mês</span>
+          <div className="flex flex-wrap gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#d9ed92] px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+              <CheckCircle2 size={16} className="text-[#d9ed92]" />
+              <span className="tracking-wide uppercase text-xs sm:text-sm">Planos a partir de R$ 150/mês</span>
+            </div>
+            
+            {/* Urgency Badge */}
+            <div className="inline-flex items-center gap-2 bg-[#e63946] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+              <Flame size={16} />
+              <span className="tracking-wide uppercase text-xs sm:text-sm">Tabela congela em 24h</span>
+            </div>
           </div>
           
           {/* Main Headline with Staggered Animation */}
@@ -47,13 +55,13 @@ const Hero: React.FC = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-5 pt-6 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
             <button
-              onClick={() => openWhatsApp()}
+              onClick={() => openWhatsApp("Olá! Quero aproveitar a *Oferta Relâmpago* que vi na capa do site antes que acabe.")}
               className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
             >
               {/* Shimmer Effect Container */}
               <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
               
-              <span className="relative z-10">COTAR VIA WHATSAPP</span>
+              <span className="relative z-10">COTAR AGORA COM DESCONTO</span>
               <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
             </button>
             
