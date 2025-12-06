@@ -14,6 +14,7 @@
       .scroll-smooth {
         scroll-behavior: smooth;
       }
+      
       /* Custom Animations */
       @keyframes float {
         0%, 100% { transform: translateY(0px); }
@@ -22,6 +23,7 @@
       .animate-float {
         animation: float 3s ease-in-out infinite;
       }
+      
       .pulse-ring {
         box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
         animation: pulse-ring 2s infinite;
@@ -30,6 +32,38 @@
         0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
         70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
         100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+      }
+
+      /* Hero Background Zoom */
+      @keyframes slowZoom {
+        0% { transform: scale(1); }
+        100% { transform: scale(1.1); }
+      }
+      .animate-slow-zoom {
+        animation: slowZoom 20s linear infinite alternate;
+      }
+
+      /* Button Shimmer Effect */
+      @keyframes shimmer {
+        100% { transform: translateX(100%); }
+      }
+      .animate-shimmer {
+        animation: shimmer 2s infinite;
+      }
+
+      /* Fade In Up */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translate3d(0, 40px, 0);
+        }
+        to {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
       }
     </style>
   <script type="importmap">
