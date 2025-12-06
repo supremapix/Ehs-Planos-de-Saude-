@@ -5,29 +5,31 @@ import { openWhatsApp } from '../services/whatsappService';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Parallax-like fixed position */}
-      <div 
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{
-          backgroundImage: 'url("https://picsum.photos/id/437/1920/1080")', 
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003f44]/90 to-[#006d77]/70"></div>
+      {/* Optimized Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920" 
+          alt="Família feliz e saudável"
+          className="w-full h-full object-cover object-center"
+          loading="eager"
+        />
+        {/* Gradient Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003f44]/95 via-[#006d77]/80 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 z-10 pt-20">
         <div className="max-w-3xl text-white space-y-6 animate-[fadeIn_1s_ease-out]">
-          <div className="inline-flex items-center gap-2 bg-[#d9ed92] text-[#003f44] px-4 py-1 rounded-full text-sm font-bold mb-4">
+          <div className="inline-flex items-center gap-2 bg-[#d9ed92] text-[#003f44] px-4 py-1 rounded-full text-sm font-bold mb-4 shadow-md">
             <CheckCircle2 size={16} />
             <span>Planos a partir de R$ 150/mês</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-sm">
             Seu Plano de Saúde Ideal <br />
             <span className="text-[#d9ed92]">Está Aqui!</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-gray-100 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-100 max-w-xl leading-relaxed drop-shadow-md">
             Cobertura completa para consultas, exames, cirurgias e internações. 
             Cuidamos da sua saúde e da sua família com preços que cabem no seu bolso.
           </p>

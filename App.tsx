@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Benefits from './components/Benefits';
 import Plans from './components/Plans';
 import Stats from './components/Stats';
+import Testimonials from './components/Testimonials';
 import Networks from './components/Networks';
 import Urgency from './components/Urgency';
 import FAQ from './components/FAQ';
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <Urgency />
         <Networks />
         <Stats />
+        <Testimonials />
         <FAQ />
         <ContactForm />
       </main>

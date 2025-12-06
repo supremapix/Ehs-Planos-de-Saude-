@@ -19,19 +19,19 @@ const Plans: React.FC = () => {
           {PLANS.map((plan) => (
             <div 
               key={plan.id}
-              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
                 plan.highlight 
                   ? 'border-[#006d77] shadow-xl bg-white scale-105 z-10' 
                   : 'border-gray-200 bg-gray-50 hover:bg-white'
               }`}
             >
               {plan.highlight && (
-                <div className="absolute top-0 right-0 bg-[#e63946] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-3xl uppercase">
+                <div className="absolute top-0 right-0 bg-[#e63946] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-3xl uppercase shadow-sm">
                   Mais Popular
                 </div>
               )}
 
-              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-colors ${
                 plan.highlight ? 'bg-[#006d77] text-white' : 'bg-gray-200 text-gray-600'
               }`}>
                 {plan.icon}
@@ -51,7 +51,7 @@ const Plans: React.FC = () => {
 
               <button
                 onClick={() => openWhatsApp({ name: '', phone: '', email: '', birthDate: '', planType: plan.title, message: 'Gostaria de saber mais sobre este plano.', agreeTerms: true })}
-                className={`w-full py-3 px-6 rounded-xl font-bold transition-colors ${
+                className={`w-full py-3 px-6 rounded-xl font-bold transition-colors shadow-md hover:shadow-lg ${
                   plan.highlight
                     ? 'bg-[#006d77] text-white hover:bg-[#005a63]'
                     : 'bg-white border-2 border-[#006d77] text-[#006d77] hover:bg-[#006d77] hover:text-white'
