@@ -5,7 +5,9 @@ export const generateWhatsAppLink = (data?: FormData): string => {
   const baseUrl = `https://api.whatsapp.com/send?phone=${COMPANY_INFO.whatsapp}`;
 
   if (!data) {
-    return `${baseUrl}&text=${encodeURIComponent("Olá! Gostaria de saber mais sobre os planos de saúde.")}`;
+    // Mensagem padrão atualizada conforme solicitação específica
+    const defaultMessage = "Olá, achei seu *site no Google:*";
+    return `${baseUrl}&text=${encodeURIComponent(defaultMessage)}`;
   }
 
   const message = `

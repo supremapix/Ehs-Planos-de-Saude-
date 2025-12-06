@@ -1,5 +1,6 @@
 import React from 'react';
 import { Timer, ArrowRight } from 'lucide-react';
+import { openWhatsApp } from '../services/whatsappService';
 
 const Urgency: React.FC = () => {
   return (
@@ -21,13 +22,13 @@ const Urgency: React.FC = () => {
           </div>
         </div>
         
-        <a 
-          href="#contato"
-          className="bg-white text-[#e63946] px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap"
+        <button 
+          onClick={() => openWhatsApp()}
+          className="bg-white text-[#e63946] px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer"
         >
           GARANTIR MINHA VAGA
           <ArrowRight size={20} />
-        </a>
+        </button>
       </div>
     </section>
   );

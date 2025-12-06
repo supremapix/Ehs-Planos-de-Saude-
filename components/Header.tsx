@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { NAV_LINKS, COMPANY_INFO } from '../constants';
+import { openWhatsApp } from '../services/whatsappService';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -83,12 +84,15 @@ const Header: React.FC = () => {
           </a>
         ))}
         
-        <a
-          href={`tel:${COMPANY_INFO.phone}`}
+        <button
+          onClick={() => {
+            openWhatsApp();
+            setIsMobileMenuOpen(false);
+          }}
           className="bg-white text-[#006d77] px-8 py-3 rounded-full font-bold text-lg mt-8 shadow-xl"
         >
-          Ligar Agora
-        </a>
+          Falar no WhatsApp
+        </button>
       </div>
     </header>
   );

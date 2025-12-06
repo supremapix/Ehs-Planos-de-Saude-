@@ -1,8 +1,11 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Clock, Mail } from 'lucide-react';
 import { COMPANY_INFO, NAV_LINKS } from '../constants';
+import { generateWhatsAppLink } from '../services/whatsappService';
 
 const Footer: React.FC = () => {
+  const socialLink = generateWhatsAppLink();
+
   return (
     <footer className="bg-[#002f35] text-gray-300 pt-16 pb-8 border-t border-[#003f44]">
       {/* Inline styles for the heartbeat animation */}
@@ -30,13 +33,31 @@ const Footer: React.FC = () => {
               Sua parceira ideal em gestão de saúde. Oferecemos as melhores soluções em planos de saúde com transparência e ética.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" aria-label="Instagram">
+              <a 
+                href={socialLink} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" 
+                aria-label="Instagram"
+              >
                 <Instagram size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" aria-label="Facebook">
+              <a 
+                href={socialLink}
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" 
+                aria-label="Facebook"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" aria-label="LinkedIn">
+              <a 
+                href={socialLink}
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors" 
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={20} />
               </a>
             </div>
