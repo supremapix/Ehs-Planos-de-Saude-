@@ -47,7 +47,9 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-[#e63946] font-bold text-sm tracking-widest uppercase">Depoimentos</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#006d77] mt-2">O que dizem nossos clientes</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+            O que dizem nossos clientes
+          </h2>
         </div>
 
         <div className="max-w-4xl mx-auto">

@@ -65,6 +65,29 @@
       .animate-fade-in-up {
         animation: fadeInUp 0.8s ease-out forwards;
       }
+
+      /* Heartbeat Animation for WhatsApp */
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        14% { transform: scale(1.1); }
+        28% { transform: scale(1); }
+        42% { transform: scale(1.1); }
+        70% { transform: scale(1); }
+      }
+      .animate-heartbeat {
+        animation: heartbeat 3s linear infinite;
+      }
+
+      /* Text Gradient Animation */
+      @keyframes gradient-x {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animate-gradient-text {
+        background-size: 200% auto;
+        animation: gradient-x 4s ease infinite;
+      }
     </style>
   <script type="importmap">
 {

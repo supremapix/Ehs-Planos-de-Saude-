@@ -16,7 +16,9 @@ const FAQ: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-[#e0f2f1] text-[#006d77] rounded-full mb-6 shadow-sm">
             <HelpCircle size={32} />
           </div>
-          <h2 className="text-4xl font-bold text-[#003f44] mb-4">Dúvidas Frequentes</h2>
+          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+            Dúvidas Frequentes
+          </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
             Separamos as perguntas mais comuns para te ajudar a entender melhor como funciona a contratação do seu plano.
           </p>

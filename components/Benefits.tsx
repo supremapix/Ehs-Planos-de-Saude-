@@ -29,7 +29,9 @@ const Benefits: React.FC = () => {
     <section id="beneficios" className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#006d77] mb-4">Por Que Escolher a EHS?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+            Por Que Escolher a EHS?
+          </h2>
           <div className="w-20 h-1 bg-[#e63946] mx-auto rounded-full"></div>
         </div>
 

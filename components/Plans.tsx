@@ -9,7 +9,9 @@ const Plans: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="text-[#e63946] font-bold text-sm tracking-widest uppercase">Nossas Soluções</span>
-          <h2 className="text-4xl font-bold text-[#006d77] mt-2 mb-4">Escolha o Plano Ideal</h2>
+          <h2 className="text-4xl font-bold mt-2 mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+            Escolha o Plano Ideal
+          </h2>
           <p className="text-gray-500 max-w-2xl mx-auto">
             Temos opções flexíveis que se adaptam perfeitamente à sua necessidade e ao seu momento de vida.
           </p>
