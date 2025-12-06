@@ -1,0 +1,70 @@
+import React from 'react';
+import { PLANS } from '../constants';
+import { Check } from 'lucide-react';
+import { openWhatsApp } from '../services/whatsappService';
+
+const Plans: React.FC = () => {
+  return (
+    <section id="planos" className="py-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <span className="text-[#e63946] font-bold text-sm tracking-widest uppercase">Nossas Soluções</span>
+          <h2 className="text-4xl font-bold text-[#006d77] mt-2 mb-4">Escolha o Plano Ideal</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Temos opções flexíveis que se adaptam perfeitamente à sua necessidade e ao seu momento de vida.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {PLANS.map((plan) => (
+            <div 
+              key={plan.id}
+              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
+                plan.highlight 
+                  ? 'border-[#006d77] shadow-xl bg-white scale-105 z-10' 
+                  : 'border-gray-200 bg-gray-50 hover:bg-white'
+              }`}
+            >
+              {plan.highlight && (
+                <div className="absolute top-0 right-0 bg-[#e63946] text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-3xl uppercase">
+                  Mais Popular
+                </div>
+              )}
+
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
+                plan.highlight ? 'bg-[#006d77] text-white' : 'bg-gray-200 text-gray-600'
+              }`}>
+                {plan.icon}
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-800 mb-3">{plan.title}</h3>
+              <p className="text-gray-600 mb-8 flex-grow">{plan.description}</p>
+
+              <ul className="space-y-3 mb-8">
+                {['Cobertura Nacional', 'Sem Coparticipação*', 'Clube de Benefícios'].map((feat, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm text-gray-600">
+                    <Check size={16} className="text-[#006d77]" />
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                onClick={() => openWhatsApp({ name: '', phone: '', email: '', birthDate: '', planType: plan.title, message: 'Gostaria de saber mais sobre este plano.', agreeTerms: true })}
+                className={`w-full py-3 px-6 rounded-xl font-bold transition-colors ${
+                  plan.highlight
+                    ? 'bg-[#006d77] text-white hover:bg-[#005a63]'
+                    : 'bg-white border-2 border-[#006d77] text-[#006d77] hover:bg-[#006d77] hover:text-white'
+                }`}
+              >
+                Solicitar Cotação
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Plans;
