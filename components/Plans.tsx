@@ -1,6 +1,6 @@
 import React from 'react';
-import { PLANS } from '../constants';
-import { Check, AlertCircle } from 'lucide-react';
+import { PLANS, TESTIMONIALS } from '../constants';
+import { Check, AlertCircle, Quote, Star } from 'lucide-react';
 import { openWhatsApp } from '../services/whatsappService';
 
 const Plans: React.FC = () => {
@@ -17,7 +17,8 @@ const Plans: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        {/* Plan Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center mb-20">
           {PLANS.map((plan, index) => (
             <div 
               key={plan.id}
@@ -69,6 +70,39 @@ const Plans: React.FC = () => {
               </button>
             </div>
           ))}
+        </div>
+
+        {/* Plan Testimonials Section */}
+        <div className="max-w-6xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-10">
+            Histórias de quem contratou
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {TESTIMONIALS.slice(0, 4).map((testimonial) => (
+              <div key={testimonial.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex gap-4 items-start">
+                <div className="shrink-0">
+                  <img 
+                    src={testimonial.image} 
+                    alt={testimonial.name} 
+                    className="w-12 h-12 rounded-full object-cover border-2 border-[#d9ed92]"
+                  />
+                </div>
+                <div>
+                  <div className="flex gap-1 mb-2">
+                     {[1, 2, 3, 4, 5].map((star) => (
+                        <Star key={star} size={14} className="text-yellow-400 fill-yellow-400" />
+                      ))}
+                  </div>
+                  <p className="text-gray-600 text-sm italic mb-2">"{testimonial.text}"</p>
+                  <div className="flex items-center gap-2">
+                    <span className="font-bold text-gray-900 text-sm">{testimonial.name}</span>
+                    <span className="text-xs text-gray-400">•</span>
+                    <span className="text-[#006d77] text-xs font-bold bg-[#e0f2f1] px-2 py-0.5 rounded-full">{testimonial.role}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

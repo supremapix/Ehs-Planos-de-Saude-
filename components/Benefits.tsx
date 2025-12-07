@@ -44,8 +44,13 @@ const Benefits: React.FC = () => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 bg-[#e0f2f1] rounded-full flex items-center justify-center text-[#006d77] mb-6 group-hover:bg-[#006d77] group-hover:text-white transition-colors duration-300">
+              <div className="relative w-16 h-16 bg-[#e0f2f1] rounded-full flex items-center justify-center text-[#006d77] mb-6 group-hover:bg-[#006d77] group-hover:text-white transition-colors duration-300">
                 {item.icon}
+                {/* Tooltip */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg">
+                  {item.title}
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800"></div>
+                </div>
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">{item.title}</h3>
               <p className="text-gray-600 leading-relaxed">{item.desc}</p>

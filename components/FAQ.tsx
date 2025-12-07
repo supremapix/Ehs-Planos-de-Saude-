@@ -1,16 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, HelpCircle, MessageCircleQuestion } from 'lucide-react';
 import { FAQS } from '../constants';
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute('data-index'));
+            setVisibleItems((prev) => (prev.includes(index) ? prev : [...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const items = sectionRef.current?.querySelectorAll('.faq-item');
+    items?.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-24 bg-white" ref={sectionRef}>
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-16">
           <div className="inline-flex items-center justify-center p-3 bg-[#e0f2f1] text-[#006d77] rounded-full mb-6 shadow-sm">
@@ -27,11 +48,16 @@ const FAQ: React.FC = () => {
         <div className="space-y-4">
           {FAQS.map((faq, index) => (
             <div 
-              key={index} 
-              className={`group border rounded-2xl transition-all duration-300 overflow-hidden ${
+              key={index}
+              data-index={index}
+              className={`faq-item group border rounded-2xl transition-all duration-700 overflow-hidden ${
                 openIndex === index 
                   ? 'border-[#006d77] shadow-lg bg-white ring-1 ring-[#006d77]/20' 
                   : 'border-gray-200 hover:border-[#006d77]/50 hover:bg-gray-50'
+              } ${
+                visibleItems.includes(index) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
               }`}
             >
               <button

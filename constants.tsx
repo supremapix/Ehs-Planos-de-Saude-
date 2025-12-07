@@ -111,3 +111,34 @@ export const NAV_LINKS = [
   { name: 'FAQ', href: '#faq' },
   { name: 'Contato', href: '#contato' },
 ];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Roberto Almeida',
+    role: 'Plano Familiar',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+    text: 'A contratação foi super rápida! O atendimento via WhatsApp me ajudou a tirar todas as dúvidas e escolhi o melhor plano para minha esposa e filhos.',
+  },
+  {
+    id: 2,
+    name: 'Ana Cláudia Souza',
+    role: 'Plano MEI',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80',
+    text: 'Como microempreendedora, precisava de um custo acessível. A EHS conseguiu reduzir minha carência e o preço ficou excelente.',
+  },
+  {
+    id: 3,
+    name: 'Carlos Oliveira',
+    role: 'Plano Sênior',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+    text: 'Fui muito bem atendido. O respeito e a paciência da equipe em explicar os detalhes para a terceira idade fizeram toda a diferença.',
+  },
+  {
+    id: 4,
+    name: 'Mariana Costa',
+    role: 'Plano Individual',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+    text: 'A rede credenciada é ótima, consegui marcar meus exames no laboratório perto de casa na mesma semana que contratei.',
+  }
+];

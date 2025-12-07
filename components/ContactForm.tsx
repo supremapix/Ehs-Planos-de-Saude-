@@ -49,7 +49,7 @@ const ContactForm: React.FC = () => {
           {/* Info Side */}
           <div className="lg:w-1/2 space-y-8">
             <div>
-              <h2 className="text-3xl font-bold text-[#006d77] mb-4">Solicite Sua Cotação Gratuita</h2>
+              <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">Solicite Sua Cotação Gratuita</h2>
               <p className="text-gray-600 text-lg">
                 Preencha o formulário e um de nossos especialistas entrará em contato via WhatsApp em instantes com a melhor proposta para você.
               </p>

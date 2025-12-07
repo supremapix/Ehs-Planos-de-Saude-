@@ -66,13 +66,13 @@ const Hero: React.FC = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 pt-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
               <button
-                onClick={() => openWhatsApp("Olá! Quero aproveitar a *Oferta Relâmpago* que vi na capa do site antes que acabe.")}
-                className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
+                onClick={() => openWhatsApp("Olá! Quero falar com um especialista via WhatsApp conforme vi na capa do site.")}
+                className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3 text-center"
               >
                 {/* Shimmer Effect Container */}
                 <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
                 
-                <span className="relative z-10">COTAR AGORA COM DESCONTO</span>
+                <span className="relative z-10">Falar com especialista via WhatsApp</span>
                 <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
               </button>
               
@@ -80,7 +80,7 @@ const Hero: React.FC = () => {
                 href="#planos"
                 className="group bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center hover:-translate-y-1"
               >
-                Ver Nossos Planos
+                Ver todos os planos disponíveis
               </a>
             </div>
             
