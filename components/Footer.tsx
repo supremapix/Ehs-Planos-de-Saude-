@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const socialLink = generateWhatsAppLink();
+  const currentYear = new Date().getFullYear();
   
   // Limitar a exibição de links no footer para não ficar gigante visualmente, mas manter estrutura
   const topBairros = BAIRROS_CURITIBA.slice(0, 10);
@@ -95,7 +96,7 @@ const Footer: React.FC = () => {
         <div className="bg-[#00252a] -mx-4 px-4 py-6 mt-4">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500">
             <div className="text-center md:text-left">
-              <p>© 2025 EHS Planos de Saúde. Todos os direitos reservados.</p>
+              <p>© {currentYear} EHS Planos de Saúde. Todos os direitos reservados.</p>
               <div className="flex gap-4 justify-center md:justify-start mt-2">
                 <Link to="#" className="hover:text-white transition-colors">Política de Privacidade</Link>
                 <span className="text-gray-700">|</span>
