@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { MapPin, Phone, CheckCircle, Star } from 'lucide-react';
 import { COMPANY_INFO, PLANS } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
@@ -128,12 +127,11 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
 
   return (
     <div className="bg-white min-h-screen pt-20">
-      <Helmet>
-        <title>{titleSEO}</title>
-        <meta name="description" content={descSEO} />
-        <link rel="canonical" href={canonicalUrl} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
-      </Helmet>
+      {/* React 19 Native Metadata Hoisting */}
+      <title>{titleSEO}</title>
+      <meta name="description" content={descSEO} />
+      <link rel="canonical" href={canonicalUrl} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
 
       {/* Hero Local */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">

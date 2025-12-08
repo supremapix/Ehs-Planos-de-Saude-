@@ -1,15 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { BAIRROS_CURITIBA, CIDADES_RMC } from '../constants';
 
 const Sitemap: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-24 pb-16">
-      <Helmet>
-        <title>Mapa do Site - Todas as Localidades | EHS Planos de Saúde</title>
-        <meta name="description" content="Encontre planos de saúde em seu bairro ou cidade. Lista completa de localidades atendidas em Curitiba e Região Metropolitana." />
-      </Helmet>
+      <title>Mapa do Site - Todas as Localidades | EHS Planos de Saúde</title>
+      <meta name="description" content="Encontre planos de saúde em seu bairro ou cidade. Lista completa de localidades atendidas em Curitiba e Região Metropolitana." />
 
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-[#006d77] mb-8 text-center">Mapa do Site</h1>
