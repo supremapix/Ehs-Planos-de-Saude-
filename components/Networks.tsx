@@ -5,20 +5,20 @@ const Networks: React.FC = () => {
     'Hospital Universitário Cajuru',
     'Hospital São Marcelino Champagnat',
     'Hospital Evangélico Mackenzie',
-    'Santa Casa de Misericórdia',
+    'Santa Casa de Misericórdia de Curitiba',
     'Hospital do Trabalhador',
-    'Hospital Pequeno Príncipe',
-    'Nossa Senhora das Graças',
+    'Hospital Infantil Pequeno Príncipe',
+    'Hospital Nossa Senhora das Graças',
     'Hospital São Lucas',
     'Hospital Vita Curitiba',
     'Hospital Vita Batel',
     'Hospital Sugisawa',
-    'Cruz Vermelha Brasileira',
+    'Hospital da Cruz Vermelha Brasileira – Curitiba',
     'Hospital Osvaldo Cruz',
     'Hospital Pilar',
     'Hospital de Olhos do Paraná',
     'Hospital Santa Cruz',
-    'Hospital Bom Retiro'
+    'Hospital Espírito de Psiquiatria Bom Retiro'
   ];
 
   return (

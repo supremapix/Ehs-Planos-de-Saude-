@@ -132,9 +132,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
         <title>{titleSEO}</title>
         <meta name="description" content={descSEO} />
         <link rel="canonical" href={canonicalUrl} />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </Helmet>
 
       {/* Hero Local */}
