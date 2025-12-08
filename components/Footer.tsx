@@ -18,8 +18,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           
           {/* Brand & Social */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">EHS <span className="font-light">Saúde</span></h3>
+          <div className="space-y-6">
+            <Link to="/" className="block">
+              <img src={COMPANY_INFO.logoWhite} alt={COMPANY_INFO.name} className="h-14 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+            </Link>
             <p className="text-sm leading-relaxed text-gray-400">
               Sua parceira ideal em gestão de saúde. Oferecemos as melhores soluções em planos de saúde com transparência e ética para Curitiba e Região.
             </p>

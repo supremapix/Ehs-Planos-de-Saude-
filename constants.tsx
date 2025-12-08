@@ -4,9 +4,12 @@ import { PlanType, FAQItem, StatItem } from './types';
 
 export const COMPANY_INFO = {
   name: 'EHS Planos de Saúde',
-  phone: '(41) 98738-1792',
-  whatsapp: '5541987381792', // Format for API
-  whatsappDisplay: '(41) 98738-1792',
+  // Substitua este link pela URL da sua logo real ou coloque o arquivo na pasta public
+  logo: 'https://placehold.co/250x80/transparent/006d77?text=EHS+Corretora&font=roboto', 
+  logoWhite: 'https://placehold.co/250x80/transparent/white?text=EHS+Corretora&font=roboto',
+  phone: '(41) 99245-7239',
+  whatsapp: '5541992457239', // Format for API
+  whatsappDisplay: '(41) 99245-7239',
   address: 'Estrada Velha do Barigui, 407 - Cidade Industrial de Curitiba - PR, 81250-460',
   schedule: 'Seg-Sex: 08h-18h | Sáb: 08h-12h',
   email: 'contato@ehsplanosdesaude.com.br',

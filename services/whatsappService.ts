@@ -10,8 +10,8 @@ export const generateWhatsAppLink = (data?: FormData | string): string => {
   }
 
   if (!data) {
-    // Mensagem padrão atualizada
-    const defaultMessage = "Olá, achei seu *site no Google:*";
+    // Mensagem padrão atualizada conforme solicitação
+    const defaultMessage = "Olá achei seu *site no Google!*";
     return `${baseUrl}&text=${encodeURIComponent(defaultMessage)}`;
   }
 

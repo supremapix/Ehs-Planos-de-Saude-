@@ -19,16 +19,23 @@ const Header: React.FC = () => {
     <header 
       className={`fixed top-0 w-full z-40 transition-all duration-500 border-b ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md shadow-sm border-gray-200 py-3' 
-          : 'bg-transparent border-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-gray-200 py-2' 
+          : 'bg-transparent border-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Area */}
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className={`font-bold text-2xl transition-colors duration-300 ${isScrolled ? 'text-[#006d77]' : 'text-white'}`}>
-            EHS <span className="font-light">Saúde</span>
-          </div>
+          <a href="/">
+            {isScrolled ? (
+              <img src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} className="h-12 md:h-14 object-contain" />
+            ) : (
+               /* Se tiver versão branca da logo, use aqui. Caso contrário, use a normal ou texto */
+               <div className="flex items-center">
+                 <img src={COMPANY_INFO.logoWhite} alt={COMPANY_INFO.name} className="h-12 md:h-14 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+               </div>
+            )}
+          </a>
         </div>
 
         {/* Desktop Nav */}

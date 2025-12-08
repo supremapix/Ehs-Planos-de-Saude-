@@ -2,12 +2,23 @@ import React from 'react';
 
 const Networks: React.FC = () => {
   const logos = [
-    'Hospital Albert Einstein',
-    'Hospital Alemão Oswaldo Cruz',
-    'Lavoisier',
-    'IPQ',
-    'Fleury',
-    'Sírio-Libanês'
+    'Hospital Universitário Cajuru',
+    'Hospital São Marcelino Champagnat',
+    'Hospital Evangélico Mackenzie',
+    'Santa Casa de Misericórdia',
+    'Hospital do Trabalhador',
+    'Hospital Pequeno Príncipe',
+    'Nossa Senhora das Graças',
+    'Hospital São Lucas',
+    'Hospital Vita Curitiba',
+    'Hospital Vita Batel',
+    'Hospital Sugisawa',
+    'Cruz Vermelha Brasileira',
+    'Hospital Osvaldo Cruz',
+    'Hospital Pilar',
+    'Hospital de Olhos do Paraná',
+    'Hospital Santa Cruz',
+    'Hospital Bom Retiro'
   ];
 
   return (
@@ -22,7 +33,7 @@ const Networks: React.FC = () => {
         <div className="flex animate-scroll whitespace-nowrap w-max gap-16 px-4">
           {[...logos, ...logos].map((logo, index) => (
             <div key={index} className="flex items-center justify-center bg-white px-8 py-4 rounded-xl shadow-sm border border-gray-100 min-w-[200px]">
-              <span className="font-bold text-gray-400 text-lg">{logo}</span>
+              <span className="font-bold text-gray-500 text-lg hover:text-[#006d77] transition-colors">{logo}</span>
             </div>
           ))}
         </div>
