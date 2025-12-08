@@ -13,23 +13,6 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#002f35] text-gray-300 pt-16 border-t border-[#003f44]">
-      {/* Inline styles for the heartbeat animation */}
-      <style>{`
-        @keyframes heartbeat {
-          0% { transform: scale(1); }
-          14% { transform: scale(1.3); }
-          28% { transform: scale(1); }
-          42% { transform: scale(1.3); }
-          70% { transform: scale(1); }
-        }
-        .heart-beat-giant {
-          animation: heartbeat 1.2s ease-in-out infinite;
-          display: inline-block;
-          color: #ef4444;
-          filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
-        }
-      `}</style>
-
       <div className="container mx-auto px-4">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">

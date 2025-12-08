@@ -22,9 +22,9 @@ const Plans: React.FC = () => {
           {PLANS.map((plan, index) => (
             <div 
               key={plan.id}
-              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 ${
+              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${
                 plan.highlight 
-                  ? 'border-[#006d77] shadow-xl bg-white scale-105 z-10' 
+                  ? 'border-[#006d77] shadow-xl bg-white scale-[1.02] z-10' 
                   : 'border-gray-200 bg-gray-50 hover:bg-white'
               }`}
             >
@@ -72,7 +72,7 @@ const Plans: React.FC = () => {
           ))}
         </div>
 
-        {/* Plan Testimonials Section */}
+        {/* Plan Testimonials Section - keeping this as requested in previous turns */}
         <div className="max-w-6xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
           <h3 className="text-2xl font-bold text-center text-gray-800 mb-10">
             Histórias de quem contratou

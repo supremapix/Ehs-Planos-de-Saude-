@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { MapPin, Phone, CheckCircle, ShieldCheck, Star, ArrowRight, Building2, User, Users, Briefcase } from 'lucide-react';
+import { MapPin, Phone, CheckCircle, Star } from 'lucide-react';
 import { COMPANY_INFO, PLANS } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
 import ContactForm from './ContactForm';
@@ -13,8 +13,6 @@ interface LocationPageProps {
 const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
   const { slug } = useParams<{ slug: string }>();
   
-  // Converter slug para Nome (ex: agua-verde -> Água Verde)
-  // Esta é uma função simples de formatação, idealmente mapearia do array original
   const formatName = (str: string | undefined) => {
     if (!str) return '';
     return str
@@ -30,12 +28,29 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
   const descSEO = `Procurando Plano de Saúde em ${fullName}? Tabelas com até 40% de desconto, carência reduzida e ampla rede credenciada em ${fullName}. Cote agora pelo WhatsApp!`;
   const canonicalUrl = `${COMPANY_INFO.siteUrl}/${type === 'bairro' ? 'plano-de-saude' : 'cidade'}/${slug}`;
 
-  // Imagens reutilizadas da home para performance
+  // Schema JSON-LD
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    "name": `EHS Planos de Saúde - ${fullName}`,
+    "description": descSEO,
+    "url": canonicalUrl,
+    "telephone": COMPANY_INFO.phone,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": COMPANY_INFO.address,
+      "addressLocality": "Curitiba",
+      "addressRegion": "PR",
+      "addressCountry": "BR"
+    },
+    "areaServed": fullName,
+    "priceRange": "$$"
+  };
+
   const heroImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920";
   const contentImage1 = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800";
   const contentImage2 = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800";
 
-  // Gerador de Conteúdo: 18 Textos SEO Otimizados
   const sections = [
     {
       title: `Planos de Saúde em ${fullName}: O que você precisa saber`,
@@ -118,23 +133,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
         <meta name="description" content={descSEO} />
         <link rel="canonical" href={canonicalUrl} />
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "InsuranceAgency",
-            "name": `EHS Planos de Saúde - ${fullName}`,
-            "description": descSEO,
-            "url": canonicalUrl,
-            "telephone": COMPANY_INFO.phone,
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": COMPANY_INFO.address,
-              "addressLocality": "Curitiba",
-              "addressRegion": "PR",
-              "addressCountry": "BR"
-            },
-            "areaServed": fullName,
-            "priceRange": "$$"
-          })}
+          {JSON.stringify(schemaData)}
         </script>
       </Helmet>
 
@@ -170,7 +169,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
         </div>
       </div>
 
-      {/* Main Content: 18 Texts Layout */}
+      {/* Main Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-12">
@@ -178,7 +177,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
             {/* Left Content Column */}
             <div className="lg:w-2/3 space-y-12">
               <div className="prose prose-lg max-w-none text-gray-600">
-                {/* Intro Section */}
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
                    <h2 className="text-3xl font-bold text-[#006d77] mb-6">{sections[0].title}</h2>
                    <p className="leading-relaxed mb-6">{sections[0].content}</p>
@@ -190,7 +188,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                    </ul>
                 </div>
 
-                {/* Content Block 1 with Image */}
                 <div className="my-12">
                   <img src={contentImage1} alt={`Saúde em ${fullName}`} className="w-full h-80 object-cover rounded-2xl shadow-lg mb-8" />
                   {sections.slice(1, 6).map((section, idx) => (
@@ -204,7 +201,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   ))}
                 </div>
 
-                {/* CTA Break */}
                 <div className="bg-[#003f44] text-white p-10 rounded-3xl shadow-xl my-12 text-center relative overflow-hidden">
                   <div className="relative z-10">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">Mora em {fullName}?</h3>
@@ -219,7 +215,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
                 </div>
 
-                {/* Content Block 2 with Image */}
                 <div className="my-12">
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                       <img src={contentImage2} alt={`Família em ${fullName}`} className="w-full h-full object-cover rounded-2xl shadow-lg min-h-[300px]" />
@@ -244,11 +239,8 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
               </div>
             </div>
 
-            {/* Sidebar / Sticky Widget */}
             <div className="lg:w-1/3">
               <div className="sticky top-24 space-y-8">
-                
-                {/* Mini Form */}
                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
                   <h3 className="text-xl font-bold text-[#006d77] mb-4">Cotação Rápida</h3>
                   <p className="text-sm text-gray-500 mb-6">Preencha para receber valores para {fullName}.</p>
@@ -266,9 +258,8 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   </a>
                 </div>
 
-                {/* Plan Highlights */}
                 <div className="bg-[#006d77] text-white p-6 rounded-2xl shadow-lg">
-                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Star size={18} className="text-[#d9ed92]" /> Planos Populares</h3>
+                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Star size={18} className="text-[#d9ed92] fill-[#d9ed92]" /> Planos Populares</h3>
                   <ul className="space-y-4">
                     {PLANS.slice(0, 4).map(plan => (
                       <li key={plan.id} className="flex items-center gap-3 pb-3 border-b border-white/10 last:border-0">
@@ -281,7 +272,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                     ))}
                   </ul>
                 </div>
-
               </div>
             </div>
 
@@ -289,7 +279,6 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
         </div>
       </section>
 
-      {/* Reuse standard components */}
       <ContactForm />
     </div>
   );
