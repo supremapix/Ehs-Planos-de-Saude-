@@ -25,42 +25,45 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Area */}
-        <div className="flex items-center gap-2 group cursor-pointer">
+        <div className="flex items-center gap-2 group cursor-pointer shrink-0">
           <a href="/">
             {isScrolled ? (
-              <img src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} className="h-12 md:h-14 object-contain" />
+              <img src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} className="h-10 md:h-12 lg:h-14 object-contain" />
             ) : (
-               /* Se tiver versão branca da logo, use aqui. Caso contrário, use a normal ou texto */
                <div className="flex items-center">
-                 <img src={COMPANY_INFO.logoWhite} alt={COMPANY_INFO.name} className="h-12 md:h-14 object-contain opacity-90 hover:opacity-100 transition-opacity" />
+                 <img src={COMPANY_INFO.logoWhite} alt={COMPANY_INFO.name} className="h-10 md:h-12 lg:h-14 object-contain opacity-90 hover:opacity-100 transition-opacity" />
                </div>
             )}
           </a>
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-medium transition-colors relative group py-2 ${
-                isScrolled ? 'text-gray-700 hover:text-[#006d77]' : 'text-white/90 hover:text-white'
-              }`}
-            >
-              {link.name}
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                isScrolled ? 'bg-[#006d77]' : 'bg-[#d9ed92]'
-              }`}></span>
-            </a>
-          ))}
-          <a
-            href={`tel:${COMPANY_INFO.phone}`}
-            className="flex items-center gap-2 bg-[#e63946] hover:bg-[#c92a37] text-white px-5 py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5 active:translate-y-0"
+        {/* Desktop Nav - Optimized Spacing */}
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8 xl:gap-10">
+          <div className="flex items-center gap-4 lg:gap-6">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-xs lg:text-sm font-medium transition-colors relative group py-2 whitespace-nowrap ${
+                  isScrolled ? 'text-gray-700 hover:text-[#006d77]' : 'text-white/90 hover:text-white'
+                }`}
+              >
+                {link.name}
+                <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
+                  isScrolled ? 'bg-[#006d77]' : 'bg-[#d9ed92]'
+                }`}></span>
+              </a>
+            ))}
+          </div>
+          
+          <button
+            onClick={() => openWhatsApp()}
+            className="flex items-center gap-2 bg-[#e63946] hover:bg-[#c92a37] text-white px-4 py-2 lg:px-5 lg:py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5 active:translate-y-0 text-xs lg:text-sm whitespace-nowrap"
           >
-            <Phone size={18} />
-            <span className="hidden lg:inline">{COMPANY_INFO.phone}</span>
-          </a>
+            <Phone size={16} className="lg:w-[18px] lg:h-[18px]" />
+            <span className="hidden xl:inline">{COMPANY_INFO.whatsappDisplay}</span>
+            <span className="xl:hidden">WhatsApp</span>
+          </button>
         </nav>
 
         {/* Mobile Toggle */}

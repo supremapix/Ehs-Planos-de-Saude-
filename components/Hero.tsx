@@ -12,7 +12,7 @@ const Hero: React.FC = () => {
   const videoSrc = `${videoBaseUrl}${videoParams}`;
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-[100dvh] flex items-center overflow-hidden">
       {/* Optimized Background Image with Slow Zoom Animation */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
@@ -27,30 +27,30 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
       </div>
 
-      <div className="container mx-auto px-4 z-10 pt-24 pb-12">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div className="container mx-auto px-4 z-10 pt-28 pb-12 lg:pt-32">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           
           {/* Left Column: Text Content */}
-          <div className="lg:w-3/5 space-y-8 text-white">
+          <div className="w-full lg:w-3/5 space-y-6 lg:space-y-8 text-white text-center lg:text-left">
             
             {/* Badge with Slide Down Animation */}
-            <div className="flex flex-wrap gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#d9ed92] px-5 py-2 rounded-full text-sm font-bold shadow-lg">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#d9ed92] px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg">
                 <CheckCircle2 size={16} className="text-[#d9ed92]" />
-                <span className="tracking-wide uppercase text-xs sm:text-sm">Planos a partir de R$ 150/mês</span>
+                <span className="tracking-wide uppercase">Planos a partir de R$ 150/mês</span>
               </div>
               
               {/* Urgency Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#e63946] text-white px-5 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+              <div className="inline-flex items-center gap-2 bg-[#e63946] text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg animate-pulse">
                 <Flame size={16} />
-                <span className="tracking-wide uppercase text-xs sm:text-sm">Tabela congela em 24h</span>
+                <span className="tracking-wide uppercase">Tabela congela em 24h</span>
               </div>
             </div>
             
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-lg opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-lg opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
               Seu Plano de Saúde Ideal <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d9ed92] to-white relative">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d9ed92] to-white relative inline-block">
                 Está Aqui!
                 {/* Underline accent */}
                 <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#d9ed92] opacity-70" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00024 6.99999C28.5002 3.49999 87.0002 -2.00001 198 3.49999" stroke="currentColor" strokeWidth="3"/></svg>
@@ -58,19 +58,19 @@ const Hero: React.FC = () => {
             </h1>
             
             {/* Subheadline */}
-            <p className="text-lg md:text-2xl text-gray-100 max-w-xl leading-relaxed drop-shadow-md font-light opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow-md font-light opacity-0 animate-[fadeInUp_0.8s_ease-out_0.4s_forwards]">
               Cobertura completa para consultas, exames, cirurgias e internações. 
-              Cuidamos da sua saúde e da sua família.
+              Cuidamos da sua saúde e da sua família com o melhor custo-benefício.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 pt-4 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start opacity-0 animate-[fadeInUp_0.8s_ease-out_0.6s_forwards]">
               <button
                 onClick={() => openWhatsApp("Olá! Quero falar com um especialista via WhatsApp conforme vi na capa do site.")}
-                className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3 text-center"
+                className="group relative overflow-hidden bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3 text-center w-full sm:w-auto"
               >
-                {/* Shimmer Effect Container */}
-                <div className="absolute inset-0 -translate-x-full group-hover:animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
+                {/* Intermittent Shimmer Wave Effect */}
+                <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-20deg] animate-shimmer-wave"></div>
                 
                 <span className="relative z-10">Falar com especialista via WhatsApp</span>
                 <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -78,14 +78,14 @@ const Hero: React.FC = () => {
               
               <a
                 href="#planos"
-                className="group bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center hover:-translate-y-1"
+                className="group bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 sm:px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all text-center flex items-center justify-center hover:-translate-y-1 w-full sm:w-auto"
               >
                 Ver todos os planos disponíveis
               </a>
             </div>
             
             {/* Trust Indicators */}
-            <div className="pt-6 flex items-center gap-6 text-sm text-gray-300 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm text-gray-300 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-8 h-8 rounded-full border-2 border-[#003f44] bg-gray-300 overflow-hidden">
@@ -93,18 +93,18 @@ const Hero: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div>
-                <div className="flex text-yellow-400">★★★★★</div>
+              <div className="text-center sm:text-left">
+                <div className="flex justify-center sm:justify-start text-yellow-400">★★★★★</div>
                 <p>+10.000 vidas seguradas</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Video Widget */}
-          <div className="lg:w-2/5 flex justify-center lg:justify-end opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards]">
-            <div className="relative group">
+          {/* Right Column: Video Widget - Adjusted for Mobile/Desktop */}
+          <div className="w-full lg:w-2/5 flex justify-center lg:justify-end opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards] mt-8 lg:mt-0">
+            <div className="relative group max-w-[280px] lg:max-w-none">
               {/* Phone Frame styling */}
-              <div className={`relative w-[260px] md:w-[280px] h-[460px] md:h-[500px] bg-black rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl overflow-hidden transition-all duration-500 ${isMuted ? 'lg:rotate-[-6deg] lg:hover:rotate-0' : 'rotate-0 scale-105'}`}>
+              <div className={`relative w-[240px] md:w-[260px] h-[426px] md:h-[462px] bg-black rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl overflow-hidden transition-all duration-500 ${isMuted ? 'lg:rotate-[-6deg] lg:hover:rotate-0' : 'rotate-0 scale-105'}`}>
                 
                 {/* Video Iframe */}
                 <iframe 
@@ -119,15 +119,15 @@ const Hero: React.FC = () => {
                 <div className={`absolute bottom-6 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ${isMuted ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}>
                   <button 
                     onClick={() => setIsMuted(!isMuted)}
-                    className="flex items-center gap-2 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full border border-white/20 hover:bg-[#e63946] hover:border-[#e63946] transition-all shadow-lg active:scale-95"
+                    className="flex items-center gap-2 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full border border-white/20 hover:bg-[#e63946] hover:border-[#e63946] transition-all shadow-lg active:scale-95 whitespace-nowrap"
                   >
                     {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                    <span className="text-sm font-bold">{isMuted ? 'Ativar Som' : 'Silenciar'}</span>
+                    <span className="text-xs font-bold">{isMuted ? 'Ativar Som' : 'Silenciar'}</span>
                   </button>
                 </div>
 
                 {/* Top Notch Decoration */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-xl z-10"></div>
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-28 h-5 bg-black rounded-b-xl z-10"></div>
               </div>
 
               {/* Decorative elements behind phone */}
@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50 cursor-pointer hover:text-white transition-colors hidden md:block">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50 cursor-pointer hover:text-white transition-colors hidden md:block z-20">
         <a href="#beneficios" className="flex flex-col items-center gap-2">
           <span className="text-[10px] uppercase tracking-[0.2em]">Descubra Mais</span>
           <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2">

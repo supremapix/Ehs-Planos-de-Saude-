@@ -22,7 +22,7 @@ const Plans: React.FC = () => {
           {PLANS.map((plan, index) => (
             <div 
               key={plan.id}
-              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-500 ease-out hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] ${
+              className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl ${
                 plan.highlight 
                   ? 'border-[#006d77] shadow-xl bg-white scale-[1.02] z-10' 
                   : 'border-gray-200 bg-gray-50 hover:bg-white'
@@ -72,14 +72,14 @@ const Plans: React.FC = () => {
           ))}
         </div>
 
-        {/* Plan Testimonials Section - keeping this as requested in previous turns */}
+        {/* Plan Testimonials Section */}
         <div className="max-w-6xl mx-auto bg-gray-50 rounded-3xl p-8 md:p-12">
-          <h3 className="text-2xl font-bold text-center text-gray-800 mb-10">
+          <h3 className="text-2xl font-bold text-center text-gray-800 mb-10 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
             Histórias de quem contratou
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {TESTIMONIALS.slice(0, 4).map((testimonial) => (
-              <div key={testimonial.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex gap-4 items-start">
+              <div key={testimonial.id} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex gap-4 items-start hover:shadow-md transition-shadow">
                 <div className="shrink-0">
                   <img 
                     src={testimonial.image} 

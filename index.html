@@ -43,12 +43,14 @@
         animation: slowZoom 20s linear infinite alternate;
       }
 
-      /* Button Shimmer Effect */
-      @keyframes shimmer {
-        100% { transform: translateX(100%); }
+      /* Button Shimmer Wave Effect - Intermittent */
+      @keyframes shimmer-wave {
+        0% { transform: translateX(-150%) skewX(-12deg); }
+        20% { transform: translateX(150%) skewX(-12deg); }
+        100% { transform: translateX(150%) skewX(-12deg); }
       }
-      .animate-shimmer {
-        animation: shimmer 2s infinite;
+      .animate-shimmer-wave {
+        animation: shimmer-wave 3s infinite;
       }
 
       /* Fade In Up */
@@ -137,7 +139,7 @@
       }
       .animate-gradient-text {
         background-size: 200% auto;
-        animation: gradient-x 4s ease infinite;
+        animation: gradient-x 5s ease infinite;
       }
     </style>
   <script type="importmap">
