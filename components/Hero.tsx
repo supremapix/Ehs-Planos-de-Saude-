@@ -6,16 +6,20 @@ import { COMPANY_INFO } from '../constants';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Background with brand colors */}
+      {/* YouTube Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920" 
-          alt="Família feliz e saudável"
-          className="w-full h-full object-cover object-center animate-slow-zoom"
-          loading="eager"
-        />
+        <div className="absolute inset-0 w-full h-full">
+          <iframe
+            src="https://www.youtube.com/embed/Zy_8fLfC51Q?autoplay=1&mute=1&loop=1&playlist=Zy_8fLfC51Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+            title="EHS Saúde Video"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[180%] md:h-[180%] min-w-full min-h-full object-cover pointer-events-none"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
         {/* Navy blue gradient overlay matching brand */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e]/95 to-[#0f0f23]/80 opacity-95"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23]/90 via-[#1a1a2e]/80 to-[#0f0f23]/70"></div>
         {/* Subtle texture/noise overlay */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
       </div>
