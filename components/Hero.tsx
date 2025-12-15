@@ -6,20 +6,16 @@ import { COMPANY_INFO } from '../constants';
 const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* YouTube Video Background */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 w-full h-full">
-          <iframe
-            src="https://www.youtube.com/embed/Zy_8fLfC51Q?autoplay=1&mute=1&loop=1&playlist=Zy_8fLfC51Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-            title="EHS Saúde Video"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[300%] md:w-[180%] md:h-[180%] min-w-full min-h-full object-cover pointer-events-none"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <img 
+          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920" 
+          alt="Família feliz e saudável"
+          className="w-full h-full object-cover object-center animate-slow-zoom"
+          loading="eager"
+        />
         {/* Navy blue gradient overlay matching brand */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23]/90 via-[#1a1a2e]/80 to-[#0f0f23]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e]/95 to-[#0f0f23]/80 opacity-95"></div>
         {/* Subtle texture/noise overlay */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
       </div>
@@ -97,21 +93,33 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Logo Display */}
+          {/* Right Column: Phone Mockup with Video */}
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards] mt-8 lg:mt-0">
             <div className="relative group">
-              {/* Logo Container */}
-              <div className="relative bg-[#0f0f23]/80 backdrop-blur-sm p-8 rounded-3xl border border-white/10 shadow-2xl">
-                <img 
-                  src={COMPANY_INFO.logoWhite} 
-                  alt={COMPANY_INFO.name}
-                  className="w-[280px] md:w-[320px] lg:w-[380px] h-auto object-contain"
-                />
-              </div>
+              {/* Phone Mockup */}
+              <div className="relative w-[280px] md:w-[300px] lg:w-[320px]">
+                {/* Phone Frame */}
+                <div className="relative bg-black rounded-[3rem] p-2 shadow-2xl border-4 border-gray-800">
+                  {/* Phone Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl z-10"></div>
+                  
+                  {/* Video Screen */}
+                  <div className="relative w-full aspect-[9/16] bg-gray-900 rounded-[2.5rem] overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/Zy_8fLfC51Q?autoplay=1&mute=1&loop=1&playlist=Zy_8fLfC51Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                      title="EHS Saúde Video"
+                      className="absolute inset-0 w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
 
-              {/* Decorative elements */}
-              <div className="absolute -z-10 top-10 -right-4 w-full h-full bg-[#22c55e]/20 rounded-3xl blur-xl"></div>
-              <div className="absolute -z-10 -bottom-4 -left-4 w-20 h-20 bg-[#22c55e]/30 rounded-full blur-xl"></div>
+                {/* Decorative elements */}
+                <div className="absolute -z-10 top-10 -right-4 w-full h-full bg-[#22c55e]/20 rounded-3xl blur-xl"></div>
+                <div className="absolute -z-10 -bottom-4 -left-4 w-20 h-20 bg-[#22c55e]/30 rounded-full blur-xl"></div>
+              </div>
             </div>
           </div>
 
