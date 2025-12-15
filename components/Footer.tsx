@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
   const topCidades = CIDADES_RMC.slice(0, 8);
 
   return (
-    <footer className="bg-[#002f35] text-gray-300 pt-16 border-t border-[#003f44]">
+    <footer className="bg-[#0f0f23] text-gray-300 pt-16 border-t border-[#1a1a2e]">
       <div className="container mx-auto px-4">
         {/* Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -27,20 +27,20 @@ const Footer: React.FC = () => {
               Sua parceira ideal em gestão de saúde. Oferecemos as melhores soluções em planos de saúde com transparência e ética para Curitiba e Região.
             </p>
             <div className="flex gap-4 pt-2">
-              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors"><Instagram size={20} /></a>
-              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors"><Facebook size={20} /></a>
-              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#006d77] transition-colors"><Linkedin size={20} /></a>
+              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#22c55e] transition-colors"><Instagram size={20} /></a>
+              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#22c55e] transition-colors"><Facebook size={20} /></a>
+              <a href={socialLink} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#22c55e] transition-colors"><Linkedin size={20} /></a>
             </div>
           </div>
 
           {/* Quick Contact Form */}
-          <div className="lg:col-span-2 bg-[#003f44] p-6 rounded-2xl border border-white/5">
+          <div className="lg:col-span-2 bg-[#1a1a2e] p-6 rounded-2xl border border-white/5">
             <h4 className="text-white font-bold mb-4 flex items-center gap-2">
-              <Mail size={18} className="text-[#e63946]" /> Contato Rápido
+              <Mail size={18} className="text-[#22c55e]" /> Contato Rápido
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <a href={`tel:${COMPANY_INFO.phone}`} className="flex items-center gap-3 bg-white/5 hover:bg-white/10 p-3 rounded-lg transition-colors">
-                <div className="bg-[#e63946] p-2 rounded-full"><Phone size={16} className="text-white" /></div>
+                <div className="bg-[#22c55e] p-2 rounded-full"><Phone size={16} className="text-white" /></div>
                 <div>
                   <div className="text-xs text-gray-400">Ligue Agora</div>
                   <div className="text-white font-bold text-sm">{COMPANY_INFO.phone}</div>
@@ -61,11 +61,11 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-bold mb-6 text-lg">Atendimento</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin className="text-[#e63946] mt-1 shrink-0" size={18} />
+                <MapPin className="text-[#22c55e] mt-1 shrink-0" size={18} />
                 <span className="text-sm hover:text-white transition-colors">{COMPANY_INFO.address}</span>
               </li>
               <li className="flex items-center gap-3">
-                <Clock className="text-[#e63946] shrink-0" size={18} />
+                <Clock className="text-[#22c55e] shrink-0" size={18} />
                 <span className="text-sm hover:text-white transition-colors">{COMPANY_INFO.schedule}</span>
               </li>
             </ul>
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
 
         {/* SEO Links (Internal Linking) */}
         <div className="border-t border-gray-700 py-8">
-          <h5 className="text-sm font-bold text-[#d9ed92] mb-4 uppercase tracking-wider">Atendemos em toda região</h5>
+          <h5 className="text-sm font-bold text-[#22c55e] mb-4 uppercase tracking-wider">Atendemos em toda região</h5>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs text-gray-500">
              {topBairros.map((bairro, i) => (
                <Link key={i} to={`/plano-de-saude/${bairro.toLowerCase().replace(/ /g, '-')}`} className="hover:text-white transition-colors truncate">
@@ -86,14 +86,14 @@ const Footer: React.FC = () => {
                  Planos em {cidade}
                </Link>
              ))}
-             <Link to="/sitemap" className="col-span-2 text-[#e63946] font-bold hover:underline flex items-center gap-1">
+             <Link to="/sitemap" className="col-span-2 text-[#22c55e] font-bold hover:underline flex items-center gap-1">
                Ver todas as localidades <ChevronRight size={12} />
              </Link>
           </div>
         </div>
 
         {/* Bottom Bar / Credits */}
-        <div className="bg-[#00252a] -mx-4 px-4 py-6 mt-4">
+        <div className="bg-[#0a0a14] -mx-4 px-4 py-6 mt-4">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500">
             <div className="text-center md:text-left">
               <p>© {currentYear} EHS Planos de Saúde. Todos os direitos reservados. (v3.1 (Fixed))</p>
@@ -111,9 +111,9 @@ const Footer: React.FC = () => {
                 href="https://www.supremamidia.com.br/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 group bg-white/5 px-6 py-2 rounded-full border border-white/10 hover:border-[#e63946]/50 hover:bg-white/10 transition-all"
+                className="flex items-center gap-2 group bg-white/5 px-6 py-2 rounded-full border border-white/10 hover:border-[#22c55e]/50 hover:bg-white/10 transition-all"
               >
-                <span className="text-white font-bold text-base tracking-wide group-hover:text-[#d9ed92] transition-colors">SUPREMA MÍDIA</span>
+                <span className="text-white font-bold text-base tracking-wide group-hover:text-[#22c55e] transition-colors">SUPREMA MÍDIA</span>
                 <Heart size={24} className="heart-beat-giant fill-red-500" />
               </a>
             </div>

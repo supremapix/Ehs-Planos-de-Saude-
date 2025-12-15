@@ -4,7 +4,7 @@ import { openWhatsApp } from '../services/whatsappService';
 
 const Urgency: React.FC = () => {
   return (
-    <section className="bg-gradient-to-r from-[#e63946] to-[#d62828] text-white py-12 relative overflow-hidden">
+    <section className="bg-gradient-to-r from-[#0f0f23] to-[#1a1a2e] text-white py-12 relative overflow-hidden">
       {/* Decorative circles */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
@@ -24,7 +24,7 @@ const Urgency: React.FC = () => {
         
         <button 
           onClick={() => openWhatsApp()}
-          className="bg-white text-[#e63946] px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer"
+          className="bg-[#22c55e] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer"
         >
           GARANTIR MINHA VAGA
           <ArrowRight size={20} />

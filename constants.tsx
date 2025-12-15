@@ -3,10 +3,9 @@ import { User, Users, Briefcase, Building2, HeartPulse } from 'lucide-react';
 import { PlanType, FAQItem, StatItem } from './types';
 
 export const COMPANY_INFO = {
-  name: 'EHS Planos de Saúde',
-  // Substitua este link pela URL da sua logo real ou coloque o arquivo na pasta public
-  logo: 'https://placehold.co/250x80/transparent/006d77?text=EHS+Corretora&font=roboto', 
-  logoWhite: 'https://placehold.co/250x80/transparent/white?text=EHS+Corretora&font=roboto',
+  name: 'EHS Corretora de Seguros',
+  logo: '/logo.webp', 
+  logoWhite: '/logo.webp',
   phone: '(41) 99245-7239',
   whatsapp: '5541992457239', // Format for API
   whatsappDisplay: '(41) 99245-7239',
@@ -17,11 +16,11 @@ export const COMPANY_INFO = {
 };
 
 export const COLORS = {
-  primary: '#006d77',
-  secondary: '#003f44',
-  accent: '#e63946',
+  primary: '#0f0f23',
+  secondary: '#1a1a2e',
+  accent: '#22c55e',
   light: '#f2f2f2',
-  lightGreen: '#d9ed92',
+  lightGreen: '#22c55e',
 };
 
 // --- LISTAS DE SEO LOCAL ---

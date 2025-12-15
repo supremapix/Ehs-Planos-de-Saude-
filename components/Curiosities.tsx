@@ -4,22 +4,22 @@ import { Lightbulb, Heart, Apple, Activity } from 'lucide-react';
 const Curiosities: React.FC = () => {
   const curiosities = [
     {
-      icon: <Heart className="w-8 h-8 text-[#e63946]" />,
+      icon: <Heart className="w-8 h-8 text-[#22c55e]" />,
       title: "Coração Forte",
       text: "Rir faz bem ao coração! O riso relaxa os vasos sanguíneos e aumenta o fluxo sanguíneo por até 45 minutos após a risada."
     },
     {
-      icon: <Apple className="w-8 h-8 text-[#d9ed92]" />,
+      icon: <Apple className="w-8 h-8 text-[#22c55e]" />,
       title: "Alimentação",
       text: "Beber água antes das refeições pode ajudar na digestão e aumentar a sensação de saciedade, auxiliando no controle de peso."
     },
     {
-      icon: <Activity className="w-8 h-8 text-[#006d77]" />,
+      icon: <Activity className="w-8 h-8 text-[#0f0f23]" />,
       title: "Atividade Física",
       text: "Apenas 30 minutos de caminhada diária podem reduzir significativamente o risco de doenças cardiovasculares e depressão."
     },
     {
-      icon: <Lightbulb className="w-8 h-8 text-[#e63946]" />,
+      icon: <Lightbulb className="w-8 h-8 text-[#22c55e]" />,
       title: "Prevenção",
       text: "Exames de rotina (check-ups) podem detectar problemas de saúde silenciosos em estágios iniciais, aumentando as chances de cura."
     }
@@ -29,8 +29,8 @@ const Curiosities: React.FC = () => {
     <section id="curiosidades" className="py-20 bg-gray-50 border-t border-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="text-[#006d77] font-bold text-sm tracking-widest uppercase">Você Sabia?</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+          <span className="text-[#22c55e] font-bold text-sm tracking-widest uppercase">Você Sabia?</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#0f0f23] via-[#22c55e] to-[#0f0f23] animate-gradient-text">
             Curiosidades sobre Saúde
           </h2>
         </div>

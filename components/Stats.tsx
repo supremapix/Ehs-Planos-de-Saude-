@@ -41,12 +41,12 @@ const Stats: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-16 bg-[#003f44] text-white">
+    <section ref={sectionRef} className="py-16 bg-[#0f0f23] text-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-600/50">
           {STATS.map((stat, index) => (
             <div key={index} className="p-4">
-              <div className="text-5xl font-bold text-[#d9ed92] mb-2 font-mono">
+              <div className="text-5xl font-bold text-[#22c55e] mb-2 font-mono">
                 {counts[index].toLocaleString()}{stat.suffix}
               </div>
               <div className="text-lg font-medium text-gray-300 uppercase tracking-wide">

@@ -45,12 +45,12 @@ const Header: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 className={`text-xs lg:text-sm font-medium transition-colors relative group py-2 whitespace-nowrap ${
-                  isScrolled ? 'text-gray-700 hover:text-[#006d77]' : 'text-white/90 hover:text-white'
+                  isScrolled ? 'text-gray-700 hover:text-[#22c55e]' : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.name}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled ? 'bg-[#006d77]' : 'bg-[#d9ed92]'
+                  isScrolled ? 'bg-[#22c55e]' : 'bg-[#22c55e]'
                 }`}></span>
               </a>
             ))}
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
           
           <button
             onClick={() => openWhatsApp()}
-            className="flex items-center gap-2 bg-[#e63946] hover:bg-[#c92a37] text-white px-4 py-2 lg:px-5 lg:py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-red-500/30 hover:-translate-y-0.5 active:translate-y-0 text-xs lg:text-sm whitespace-nowrap"
+            className="flex items-center gap-2 bg-[#22c55e] hover:bg-[#16a34a] text-white px-4 py-2 lg:px-5 lg:py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5 active:translate-y-0 text-xs lg:text-sm whitespace-nowrap"
           >
             <Phone size={16} className="lg:w-[18px] lg:h-[18px]" />
             <span className="hidden xl:inline">{COMPANY_INFO.whatsappDisplay}</span>
@@ -79,7 +79,7 @@ const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-[#006d77]/98 backdrop-blur-xl z-50 transform transition-transform duration-500 md:hidden flex flex-col items-center justify-center space-y-8 ${
+        className={`fixed inset-0 bg-[#0f0f23]/98 backdrop-blur-xl z-50 transform transition-transform duration-500 md:hidden flex flex-col items-center justify-center space-y-8 ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
             key={link.name}
             href={link.href}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-white text-2xl font-bold hover:text-[#d9ed92] transition-colors transform hover:scale-105"
+            className="text-white text-2xl font-bold hover:text-[#22c55e] transition-colors transform hover:scale-105"
             style={{ transitionDelay: `${index * 50}ms` }}
           >
             {link.name}
@@ -107,7 +107,7 @@ const Header: React.FC = () => {
             openWhatsApp();
             setIsMobileMenuOpen(false);
           }}
-          className="bg-white text-[#006d77] px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-xl hover:shadow-2xl transition-all active:scale-95"
+          className="bg-white text-[#0f0f23] px-8 py-4 rounded-full font-bold text-lg mt-8 shadow-xl hover:shadow-2xl transition-all active:scale-95"
         >
           Falar no WhatsApp
         </button>

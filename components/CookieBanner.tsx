@@ -22,12 +22,12 @@ const CookieBanner: React.FC = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm text-gray-600">
           Utilizamos cookies para oferecer a melhor experiência. Ao continuar navegando, você concorda com nossa 
-          <a href="#" className="text-[#006d77] underline ml-1">Política de Privacidade</a>.
+          <a href="#" className="text-[#22c55e] underline ml-1">Política de Privacidade</a>.
         </p>
         <div className="flex gap-3">
           <button 
             onClick={acceptCookies}
-            className="bg-[#006d77] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-[#005a63] transition-colors"
+            className="bg-[#22c55e] text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-[#16a34a] transition-colors"
           >
             Aceitar
           </button>
