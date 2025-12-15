@@ -29,10 +29,10 @@ const Benefits: React.FC = () => {
     <section id="beneficios" className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#0f0f23] via-[#22c55e] to-[#0f0f23] animate-gradient-text">
             Por Que Escolher a EHS?
           </h2>
-          <div className="w-20 h-1 bg-[#e63946] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-[#22c55e] mx-auto rounded-full"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -44,7 +44,7 @@ const Benefits: React.FC = () => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="relative w-16 h-16 bg-[#e0f2f1] rounded-full flex items-center justify-center text-[#006d77] mb-6 group-hover:bg-[#006d77] group-hover:text-white transition-colors duration-300">
+              <div className="relative w-16 h-16 bg-[#0f0f23]/10 rounded-full flex items-center justify-center text-[#0f0f23] mb-6 group-hover:bg-[#22c55e] group-hover:text-white transition-colors duration-300">
                 {item.icon}
                 {/* Tooltip */}
                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg">

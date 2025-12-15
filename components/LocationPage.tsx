@@ -136,13 +136,13 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
       {/* Hero Local */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <img src={heroImage} alt={`Plano de Saúde em ${fullName}`} className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003f44]/90 to-[#006d77]/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23]/90 to-[#1a1a2e]/80"></div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
-          <div className="inline-flex items-center gap-2 bg-[#d9ed92] text-[#003f44] px-4 py-1 rounded-full font-bold text-sm mb-6 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 bg-[#22c55e] text-white px-4 py-1 rounded-full font-bold text-sm mb-6 animate-fade-in-up">
             <MapPin size={16} /> Atendimento em {fullName}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in-up delay-100">
-            Plano de Saúde em <br/> <span className="text-[#d9ed92]">{fullName}</span>
+            Plano de Saúde em <br/> <span className="text-[#22c55e]">{fullName}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 max-w-2xl mx-auto mb-8 animate-fade-in-up delay-200">
             Cotação personalizada com os melhores preços e rede credenciada da região.
@@ -159,7 +159,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
       {/* Breadcrumb */}
       <div className="bg-gray-100 py-4 border-b">
         <div className="container mx-auto px-4 text-sm text-gray-500">
-          <Link to="/" className="hover:text-[#006d77]">Home</Link>
+          <Link to="/" className="hover:text-[#22c55e]">Home</Link>
           <span className="mx-2">/</span>
           <span className="text-gray-800 font-bold">Planos em {fullName}</span>
         </div>
@@ -174,7 +174,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
             <div className="lg:w-2/3 space-y-12">
               <div className="prose prose-lg max-w-none text-gray-600">
                 <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
-                   <h2 className="text-3xl font-bold text-[#006d77] mb-6">{sections[0].title}</h2>
+                   <h2 className="text-3xl font-bold text-[#22c55e] mb-6">{sections[0].title}</h2>
                    <p className="leading-relaxed mb-6">{sections[0].content}</p>
                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">
                      <li className="flex items-center gap-2 text-sm font-semibold text-gray-700"><CheckCircle size={18} className="text-[#25D366]" /> Atendimento Rápido</li>
@@ -189,7 +189,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   {sections.slice(1, 6).map((section, idx) => (
                     <div key={idx} className="mb-10">
                       <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        <span className="w-2 h-8 bg-[#e63946] rounded-full"></span>
+                        <span className="w-2 h-8 bg-[#22c55e] rounded-full"></span>
                         {section.title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed text-justify">{section.content}</p>
@@ -197,13 +197,13 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   ))}
                 </div>
 
-                <div className="bg-[#003f44] text-white p-10 rounded-3xl shadow-xl my-12 text-center relative overflow-hidden">
+                <div className="bg-[#0f0f23] text-white p-10 rounded-3xl shadow-xl my-12 text-center relative overflow-hidden">
                   <div className="relative z-10">
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">Mora em {fullName}?</h3>
                     <p className="mb-8 text-gray-200">Temos condições especiais para o seu endereço hoje. Consulte tabela atualizada.</p>
                     <button 
                        onClick={() => openWhatsApp(`Sou de ${fullName} e quero a tabela de preços.`)}
-                       className="bg-white text-[#003f44] px-8 py-3 rounded-full font-bold hover:bg-[#d9ed92] transition-colors"
+                       className="bg-[#22c55e] text-white px-8 py-3 rounded-full font-bold hover:bg-[#16a34a] transition-colors"
                     >
                       Ver Preços para {fullName}
                     </button>
@@ -225,7 +225,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                    </div>
                    
                    {sections.slice(9, 18).map((section, idx) => (
-                    <div key={idx} className="mb-8 p-6 bg-gray-50 rounded-xl border-l-4 border-[#006d77] hover:bg-white transition-colors">
+                    <div key={idx} className="mb-8 p-6 bg-gray-50 rounded-xl border-l-4 border-[#22c55e] hover:bg-white transition-colors">
                       <h3 className="text-xl font-bold text-gray-800 mb-3">{section.title}</h3>
                       <p className="text-gray-600 leading-relaxed text-justify">{section.content}</p>
                     </div>
@@ -238,7 +238,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
             <div className="lg:w-1/3">
               <div className="sticky top-24 space-y-8">
                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
-                  <h3 className="text-xl font-bold text-[#006d77] mb-4">Cotação Rápida</h3>
+                  <h3 className="text-xl font-bold text-[#22c55e] mb-4">Cotação Rápida</h3>
                   <p className="text-sm text-gray-500 mb-6">Preencha para receber valores para {fullName}.</p>
                   <button 
                     onClick={() => openWhatsApp(`Cotação rápida para ${fullName}`)}
@@ -254,8 +254,8 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                   </a>
                 </div>
 
-                <div className="bg-[#006d77] text-white p-6 rounded-2xl shadow-lg">
-                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Star size={18} className="text-[#d9ed92] fill-[#d9ed92]" /> Planos Populares</h3>
+                <div className="bg-[#0f0f23] text-white p-6 rounded-2xl shadow-lg">
+                  <h3 className="font-bold text-lg mb-4 flex items-center gap-2"><Star size={18} className="text-[#22c55e] fill-[#22c55e]" /> Planos Populares</h3>
                   <ul className="space-y-4">
                     {PLANS.slice(0, 4).map(plan => (
                       <li key={plan.id} className="flex items-center gap-3 pb-3 border-b border-white/10 last:border-0">

@@ -75,12 +75,12 @@ const ExitPopup: React.FC = () => {
         </button>
 
         {/* Header */}
-        <div className="bg-[#e63946] p-6 text-white text-center relative overflow-hidden">
+        <div className="bg-[#0f0f23] p-6 text-white text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20"></div>
           <div className="relative z-10 flex flex-col items-center gap-2">
             <Gift size={48} className="animate-bounce" />
             <h3 className="text-2xl font-bold uppercase tracking-wide">Espere! Não vá embora ainda</h3>
-            <p className="font-medium text-red-100">Temos uma condição exclusiva para você</p>
+            <p className="font-medium text-gray-300">Temos uma condição exclusiva para você</p>
           </div>
         </div>
 
@@ -88,13 +88,13 @@ const ExitPopup: React.FC = () => {
         <div className="p-8 text-center space-y-6">
           <div>
             <p className="text-gray-600 text-lg mb-2">Solicite sua cotação agora e ganhe:</p>
-            <h4 className="text-2xl font-bold text-[#006d77]">50% DE DESCONTO*</h4>
+            <h4 className="text-2xl font-bold text-[#22c55e]">50% DE DESCONTO*</h4>
             <p className="text-sm text-gray-500 mt-1">Na primeira mensalidade (consulte condições)</p>
           </div>
 
-          <div className="bg-red-50 border border-red-100 rounded-lg p-4 flex items-center justify-center gap-3">
-            <Clock size={20} className="text-[#e63946] animate-pulse" />
-            <span className="text-[#e63946] font-bold font-mono text-xl">
+          <div className="bg-green-50 border border-green-100 rounded-lg p-4 flex items-center justify-center gap-3">
+            <Clock size={20} className="text-[#22c55e] animate-pulse" />
+            <span className="text-[#22c55e] font-bold font-mono text-xl">
               Oferta expira em: {formatTime(timeLeft)}
             </span>
           </div>

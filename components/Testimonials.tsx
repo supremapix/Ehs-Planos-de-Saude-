@@ -16,8 +16,8 @@ const Testimonials: React.FC = () => {
     <section id="depoimentos" className="py-20 bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <span className="text-[#e63946] font-bold text-sm tracking-widest uppercase">Depoimentos</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">
+          <span className="text-[#22c55e] font-bold text-sm tracking-widest uppercase">Depoimentos</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 bg-clip-text text-transparent bg-gradient-to-r from-[#0f0f23] via-[#22c55e] to-[#0f0f23] animate-gradient-text">
             O que dizem nossos clientes
           </h2>
         </div>
@@ -39,10 +39,10 @@ const Testimonials: React.FC = () => {
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-20 h-20 rounded-full object-cover border-4 border-[#d9ed92] shadow-md"
+                        className="w-20 h-20 rounded-full object-cover border-4 border-[#22c55e] shadow-md"
                         loading="lazy"
                       />
-                      <div className="absolute -bottom-2 -right-2 bg-[#006d77] text-white p-1.5 rounded-full">
+                      <div className="absolute -bottom-2 -right-2 bg-[#22c55e] text-white p-1.5 rounded-full">
                         <Quote size={14} fill="white" />
                       </div>
                     </div>
@@ -58,7 +58,7 @@ const Testimonials: React.FC = () => {
 
                   <div>
                     <h4 className="font-bold text-gray-900 text-lg">{item.name}</h4>
-                    <p className="text-[#006d77] font-medium text-sm">{item.role}</p>
+                    <p className="text-[#22c55e] font-medium text-sm">{item.role}</p>
                   </div>
                 </div>
               </div>
@@ -72,7 +72,7 @@ const Testimonials: React.FC = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? 'bg-[#006d77] w-8' : 'bg-gray-300 hover:bg-gray-400'
+                  index === activeIndex ? 'bg-[#22c55e] w-8' : 'bg-gray-300 hover:bg-gray-400'
                 }`}
                 aria-label={`Ir para depoimento ${index + 1}`}
               />

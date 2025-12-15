@@ -9,13 +9,13 @@ const Sitemap: React.FC = () => {
       <meta name="description" content="Encontre planos de saúde em seu bairro ou cidade. Lista completa de localidades atendidas em Curitiba e Região Metropolitana." />
 
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-[#006d77] mb-8 text-center">Mapa do Site</h1>
+        <h1 className="text-4xl font-bold text-[#0f0f23] mb-8 text-center">Mapa do Site</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           
           {/* Cidades */}
           <div>
-            <h2 className="text-2xl font-bold text-[#003f44] mb-6 pb-2 border-b-2 border-[#d9ed92]">
+            <h2 className="text-2xl font-bold text-[#0f0f23] mb-6 pb-2 border-b-2 border-[#22c55e]">
               Cidades da Região Metropolitana
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -23,9 +23,9 @@ const Sitemap: React.FC = () => {
                 <Link 
                   key={index} 
                   to={`/cidade/${cidade.toLowerCase().replace(/ /g, '-')}`}
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#006d77] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#22c55e] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
                 >
-                  <span className="w-1.5 h-1.5 bg-[#e63946] rounded-full"></span>
+                  <span className="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></span>
                   Plano de Saúde em {cidade}
                 </Link>
               ))}
@@ -34,7 +34,7 @@ const Sitemap: React.FC = () => {
 
           {/* Bairros */}
           <div>
-            <h2 className="text-2xl font-bold text-[#003f44] mb-6 pb-2 border-b-2 border-[#d9ed92]">
+            <h2 className="text-2xl font-bold text-[#0f0f23] mb-6 pb-2 border-b-2 border-[#22c55e]">
               Bairros de Curitiba
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -42,9 +42,9 @@ const Sitemap: React.FC = () => {
                 <Link 
                   key={index} 
                   to={`/plano-de-saude/${bairro.toLowerCase().replace(/ /g, '-')}`}
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#006d77] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#22c55e] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
                 >
-                  <span className="w-1.5 h-1.5 bg-[#006d77] rounded-full"></span>
+                  <span className="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></span>
                   Planos no {bairro}
                 </Link>
               ))}

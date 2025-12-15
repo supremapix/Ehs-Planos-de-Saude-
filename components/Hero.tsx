@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Flame, Volume2, VolumeX } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, CheckCircle2, Flame } from 'lucide-react';
 import { openWhatsApp } from '../services/whatsappService';
+import { COMPANY_INFO } from '../constants';
 
 const Hero: React.FC = () => {
-  const [isMuted, setIsMuted] = useState(true);
-
-  // Video ID: MfyXF29wRwM
-  // Params: autoplay, loop (requires playlist=video_id), controls=0 (hide initially), modestbranding
-  const videoBaseUrl = "https://www.youtube.com/embed/MfyXF29wRwM";
-  const videoParams = `?autoplay=1&loop=1&playlist=MfyXF29wRwM&controls=${isMuted ? '0' : '1'}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&mute=${isMuted ? '1' : '0'}`;
-  const videoSrc = `${videoBaseUrl}${videoParams}`;
-
   return (
     <section id="hero" className="relative min-h-[100dvh] flex items-center overflow-hidden">
-      {/* Optimized Background Image with Slow Zoom Animation */}
+      {/* Background Image */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920" 
@@ -21,8 +14,8 @@ const Hero: React.FC = () => {
           className="w-full h-full object-cover object-center animate-slow-zoom"
           loading="eager"
         />
-        {/* Advanced Gradient Overlay for better depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003f44] via-[#006d77]/90 to-[#006d77]/40 opacity-95"></div>
+        {/* Navy blue gradient overlay matching brand */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23] via-[#1a1a2e]/95 to-[#0f0f23]/80 opacity-95"></div>
         {/* Subtle texture/noise overlay */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
       </div>
@@ -35,13 +28,13 @@ const Hero: React.FC = () => {
             
             {/* Badge with Slide Down Animation */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 opacity-0 animate-[fadeInUp_0.8s_ease-out_forwards]">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#d9ed92] px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg">
-                <CheckCircle2 size={16} className="text-[#d9ed92]" />
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-[#22c55e] px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg">
+                <CheckCircle2 size={16} className="text-[#22c55e]" />
                 <span className="tracking-wide uppercase">Planos a partir de R$ 150/mês</span>
               </div>
               
               {/* Urgency Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#e63946] text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg animate-pulse">
+              <div className="inline-flex items-center gap-2 bg-[#22c55e] text-white px-4 py-1.5 rounded-full text-xs md:text-sm font-bold shadow-lg animate-pulse">
                 <Flame size={16} />
                 <span className="tracking-wide uppercase">Tabela congela em 24h</span>
               </div>
@@ -50,10 +43,10 @@ const Hero: React.FC = () => {
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight tracking-tight drop-shadow-lg opacity-0 animate-[fadeInUp_0.8s_ease-out_0.2s_forwards]">
               Seu Plano de Saúde Ideal <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#d9ed92] to-white relative inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#22c55e] to-white relative inline-block">
                 Está Aqui!
                 {/* Underline accent */}
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#d9ed92] opacity-70" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00024 6.99999C28.5002 3.49999 87.0002 -2.00001 198 3.49999" stroke="currentColor" strokeWidth="3"/></svg>
+                <svg className="absolute w-full h-3 -bottom-1 left-0 text-[#22c55e] opacity-70" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00024 6.99999C28.5002 3.49999 87.0002 -2.00001 198 3.49999" stroke="currentColor" strokeWidth="3"/></svg>
               </span>
             </h1>
             
@@ -88,7 +81,7 @@ const Hero: React.FC = () => {
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6 text-sm text-gray-300 opacity-0 animate-[fadeInUp_0.8s_ease-out_0.8s_forwards]">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#003f44] bg-gray-300 overflow-hidden">
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0f0f23] bg-gray-300 overflow-hidden">
                     <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" className="w-full h-full object-cover" />
                   </div>
                 ))}
@@ -100,39 +93,33 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Video Widget - Adjusted for Mobile/Desktop */}
+          {/* Right Column: Phone Mockup with Video */}
           <div className="w-full lg:w-2/5 flex justify-center lg:justify-end opacity-0 animate-[fadeInUp_1s_ease-out_0.5s_forwards] mt-8 lg:mt-0">
-            <div className="relative group max-w-[280px] lg:max-w-none">
-              {/* Phone Frame styling */}
-              <div className={`relative w-[240px] md:w-[260px] h-[426px] md:h-[462px] bg-black rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl overflow-hidden transition-all duration-500 ${isMuted ? 'lg:rotate-[-6deg] lg:hover:rotate-0' : 'rotate-0 scale-105'}`}>
-                
-                {/* Video Iframe */}
-                <iframe 
-                  src={videoSrc} 
-                  title="EHS Planos de Saúde"
-                  className="w-full h-full object-cover"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
-
-                {/* Sound Control Overlay */}
-                <div className={`absolute bottom-6 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ${isMuted ? 'opacity-100' : 'opacity-0 hover:opacity-100'}`}>
-                  <button 
-                    onClick={() => setIsMuted(!isMuted)}
-                    className="flex items-center gap-2 bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full border border-white/20 hover:bg-[#e63946] hover:border-[#e63946] transition-all shadow-lg active:scale-95 whitespace-nowrap"
-                  >
-                    {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-                    <span className="text-xs font-bold">{isMuted ? 'Ativar Som' : 'Silenciar'}</span>
-                  </button>
+            <div className="relative group">
+              {/* Phone Mockup */}
+              <div className="relative w-[280px] md:w-[300px] lg:w-[320px]">
+                {/* Phone Frame */}
+                <div className="relative bg-black rounded-[3rem] p-2 shadow-2xl border-4 border-gray-800">
+                  {/* Phone Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl z-10"></div>
+                  
+                  {/* Video Screen */}
+                  <div className="relative w-full aspect-[9/16] bg-gray-900 rounded-[2.5rem] overflow-hidden">
+                    <iframe
+                      src="https://www.youtube.com/embed/Zy_8fLfC51Q?autoplay=1&mute=1&loop=1&playlist=Zy_8fLfC51Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                      title="EHS Saúde Video"
+                      className="absolute inset-0 w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
 
-                {/* Top Notch Decoration */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-28 h-5 bg-black rounded-b-xl z-10"></div>
+                {/* Decorative elements */}
+                <div className="absolute -z-10 top-10 -right-4 w-full h-full bg-[#22c55e]/20 rounded-3xl blur-xl"></div>
+                <div className="absolute -z-10 -bottom-4 -left-4 w-20 h-20 bg-[#22c55e]/30 rounded-full blur-xl"></div>
               </div>
-
-              {/* Decorative elements behind phone */}
-              <div className="absolute -z-10 top-10 -right-4 w-full h-full bg-[#d9ed92]/20 rounded-[2.5rem] blur-xl"></div>
-              <div className="absolute -z-10 -bottom-4 -left-4 w-20 h-20 bg-[#e63946]/30 rounded-full blur-xl"></div>
             </div>
           </div>
 

@@ -49,13 +49,13 @@ const ContactForm: React.FC = () => {
           {/* Info Side */}
           <div className="lg:w-1/2 space-y-8">
             <div>
-              <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#006d77] via-[#003f44] to-[#006d77] animate-gradient-text">Solicite Sua Cotação Gratuita</h2>
+              <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#0f0f23] via-[#22c55e] to-[#0f0f23] animate-gradient-text">Solicite Sua Cotação Gratuita</h2>
               <p className="text-gray-600 text-lg">
                 Preencha o formulário e um de nossos especialistas entrará em contato via WhatsApp em instantes com a melhor proposta para você.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#e63946]">
+            <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#22c55e]">
               <h4 className="font-bold text-gray-800 mb-2">Por que cotar conosco?</h4>
               <ul className="space-y-2 text-gray-600">
                 <li>✓ Atendimento humanizado</li>
@@ -82,7 +82,7 @@ const ContactForm: React.FC = () => {
           {/* Form Side */}
           <div className="lg:w-1/2">
             <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#006d77] to-[#d9ed92]"></div>
+              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#0f0f23] to-[#22c55e]"></div>
               
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
@@ -93,7 +93,7 @@ const ContactForm: React.FC = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] focus:border-transparent outline-none transition-all"
                     placeholder="Seu nome aqui"
                   />
                 </div>
@@ -107,7 +107,7 @@ const ContactForm: React.FC = () => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] outline-none"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] outline-none"
                       placeholder="(DD) 99999-9999"
                     />
                   </div>
@@ -119,7 +119,7 @@ const ContactForm: React.FC = () => {
                       required
                       value={formData.birthDate}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] outline-none text-gray-600"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] outline-none text-gray-600"
                     />
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const ContactForm: React.FC = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] outline-none"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] outline-none"
                     placeholder="seu@email.com"
                   />
                 </div>
@@ -143,7 +143,7 @@ const ContactForm: React.FC = () => {
                     name="planType"
                     value={formData.planType}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] outline-none bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] outline-none bg-white"
                   >
                     {PLANS.map(plan => (
                       <option key={plan.id} value={plan.title}>{plan.title}</option>
@@ -158,7 +158,7 @@ const ContactForm: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={3}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#006d77] outline-none resize-none"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-[#22c55e] outline-none resize-none"
                     placeholder="Alguma dúvida específica?"
                   ></textarea>
                 </div>
@@ -170,7 +170,7 @@ const ContactForm: React.FC = () => {
                     required
                     checked={formData.agreeTerms}
                     onChange={handleCheckbox}
-                    className="mt-1 w-4 h-4 text-[#006d77] rounded focus:ring-[#006d77]"
+                    className="mt-1 w-4 h-4 text-[#22c55e] rounded focus:ring-[#22c55e]"
                   />
                   <label htmlFor="terms" className="text-xs text-gray-500">
                     Concordo em receber contato da EHS Planos de Saúde via WhatsApp e E-mail. 
@@ -181,7 +181,7 @@ const ContactForm: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-[#006d77] hover:bg-[#005a63] text-white font-bold py-4 rounded-xl shadow-lg transition-all hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
+                  className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-white font-bold py-4 rounded-xl shadow-lg transition-all hover:shadow-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed group"
                 >
                   {isLoading ? (
                     <>
