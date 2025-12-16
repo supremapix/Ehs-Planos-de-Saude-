@@ -4,6 +4,7 @@ import { MapPin, Phone, CheckCircle, Star } from 'lucide-react';
 import { COMPANY_INFO, PLANS } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
 import ContactForm from './ContactForm';
+import EnhancedSEO from './EnhancedSEO';
 
 interface LocationPageProps {
   type: 'bairro' | 'cidade';
@@ -125,13 +126,18 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
     }
   ];
 
+  const keywords = `plano de saúde ${fullName}, convênio médico ${fullName}, ${locationType} ${fullName}, saúde ${fullName}, EHS ${fullName}`;
+
   return (
     <div className="bg-white min-h-screen pt-20">
-      {/* React 19 Native Metadata Hoisting */}
-      <title>{titleSEO}</title>
-      <meta name="description" content={descSEO} />
-      <link rel="canonical" href={canonicalUrl} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <EnhancedSEO
+        title={`Plano de Saúde em ${fullName}`}
+        description={descSEO}
+        canonicalUrl={canonicalUrl}
+        keywords={keywords}
+        schemaData={schemaData}
+        ogType="article"
+      />
 
       {/* Hero Local */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">

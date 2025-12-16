@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BAIRROS_CURITIBA, CIDADES_RMC } from '../constants';
+import { BAIRROS_CURITIBA, CIDADES_RMC, COMPANY_INFO } from '../constants';
+import EnhancedSEO from './EnhancedSEO';
 
 const Sitemap: React.FC = () => {
   return (
     <div className="bg-white min-h-screen pt-24 pb-16">
-      <title>Mapa do Site - Todas as Localidades | EHS Planos de Saúde</title>
-      <meta name="description" content="Encontre planos de saúde em seu bairro ou cidade. Lista completa de localidades atendidas em Curitiba e Região Metropolitana." />
+      <EnhancedSEO
+        title="Mapa do Site - Todas as Localidades"
+        description="Encontre planos de saúde em seu bairro ou cidade. Lista completa de localidades atendidas em Curitiba e Região Metropolitana."
+        canonicalUrl={`${COMPANY_INFO.siteUrl}/sitemap`}
+        keywords="mapa do site, localidades, bairros curitiba, cidades região metropolitana, plano de saúde"
+      />
 
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-[#0f0f23] mb-8 text-center">Mapa do Site</h1>

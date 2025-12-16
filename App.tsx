@@ -19,10 +19,12 @@ import BackToTop from './components/BackToTop';
 import LocationPage from './components/LocationPage';
 import Sitemap from './components/Sitemap';
 import Curiosities from './components/Curiosities';
+import HomeSEO from './components/HomeSEO';
 
 // Home Component wrapper to keep clean routing
 const HomePage = () => (
   <>
+    <HomeSEO />
     <Hero />
     <Benefits />
     <LeadMagnet />
