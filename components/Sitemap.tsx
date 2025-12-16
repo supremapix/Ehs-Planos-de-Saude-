@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BAIRROS_CURITIBA, CIDADES_RMC, COMPANY_INFO } from '../constants';
 import EnhancedSEO from './EnhancedSEO';
+import Breadcrumb from './Breadcrumb';
 import { slugify } from '../utils/slugify';
 
 const Sitemap: React.FC = () => {
@@ -15,6 +16,7 @@ const Sitemap: React.FC = () => {
       />
 
       <div className="container mx-auto px-4">
+        <Breadcrumb items={[{ name: 'Mapa do Site' }]} />
         <h1 className="text-4xl font-bold text-[#0f0f23] mb-8 text-center">Mapa do Site</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

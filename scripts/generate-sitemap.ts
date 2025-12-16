@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-const COMPANY_SITE_URL = 'https://ehsplanosdesaude.com.br';
+const COMPANY_SITE_URL = 'https://www.ehssaude.com.br';
 
 /**
  * IMPORTANT: These lists must be kept in sync with constants.tsx

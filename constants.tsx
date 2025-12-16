@@ -3,16 +3,26 @@ import { User, Users, Briefcase, Building2, HeartPulse } from 'lucide-react';
 import { PlanType, FAQItem, StatItem } from './types';
 
 export const COMPANY_INFO = {
-  name: 'EHS Corretora de Seguros',
+  name: 'EHS Planos de Saúde',
+  fullName: 'EHS Corretora de Seguros',
   logo: '/logo-dark.png',
   logoWhite: '/logo-white.png',
   phone: '(41) 99245-7239',
+  phoneFormatted: '+55-41-99245-7239',
   whatsapp: '5541992457239',
   whatsappDisplay: '(41) 99245-7239',
-  address: 'Estrada Velha do Barigui, 407 - Cidade Industrial de Curitiba - PR, 81250-460',
+  address: 'Estrada Velha do Barigui, 407',
+  fullAddress: 'Estrada Velha do Barigui, 407 - Cidade Industrial de Curitiba - PR, 81250-460',
+  city: 'Curitiba',
+  state: 'PR',
+  postalCode: '81250-460',
   schedule: 'Seg-Sex: 08h-18h | Sáb: 08h-12h',
-  email: 'contato@ehsplanosdesaude.com.br',
-  siteUrl: 'https://ehsplanosdesaude.com.br'
+  email: 'contato@ehssaude.com.br',
+  siteUrl: 'https://www.ehssaude.com.br',
+  socialMedia: {
+    facebook: 'https://www.facebook.com/ehssaude',
+    instagram: 'https://www.instagram.com/ehssaude'
+  }
 };
 
 export const COLORS = {

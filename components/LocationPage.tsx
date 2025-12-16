@@ -5,6 +5,7 @@ import { COMPANY_INFO, PLANS } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
 import ContactForm from './ContactForm';
 import EnhancedSEO from './EnhancedSEO';
+import Breadcrumb from './Breadcrumb';
 import { getOriginalName } from '../utils/slugify';
 
 interface LocationPageProps {
@@ -21,24 +22,63 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
   const descSEO = `Procurando Plano de Saúde em ${fullName}? Tabelas com até 40% de desconto, carência reduzida e ampla rede credenciada em ${fullName}. Cote agora pelo WhatsApp!`;
   const canonicalUrl = `${COMPANY_INFO.siteUrl}/${type === 'bairro' ? 'plano-de-saude' : 'cidade'}/${slug}`;
 
-  // Schema JSON-LD
-  const schemaData = {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     "name": `EHS Planos de Saúde - ${fullName}`,
     "description": descSEO,
     "url": canonicalUrl,
-    "telephone": COMPANY_INFO.phone,
+    "telephone": COMPANY_INFO.phoneFormatted,
+    "email": COMPANY_INFO.email,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": COMPANY_INFO.address,
-      "addressLocality": "Curitiba",
-      "addressRegion": "PR",
+      "addressLocality": COMPANY_INFO.city,
+      "addressRegion": COMPANY_INFO.state,
+      "postalCode": COMPANY_INFO.postalCode,
       "addressCountry": "BR"
     },
-    "areaServed": fullName,
-    "priceRange": "$$"
+    "areaServed": {
+      "@type": type === 'cidade' ? "City" : "Place",
+      "name": fullName,
+      "containedInPlace": {
+        "@type": "State",
+        "name": "Paraná"
+      }
+    },
+    "priceRange": "$$",
+    "sameAs": [
+      COMPANY_INFO.socialMedia.facebook,
+      COMPANY_INFO.socialMedia.instagram
+    ]
   };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": COMPANY_INFO.siteUrl
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": type === 'cidade' ? "Cidades" : "Bairros",
+        "item": `${COMPANY_INFO.siteUrl}/sitemap`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": `Plano de Saúde em ${fullName}`,
+        "item": canonicalUrl
+      }
+    ]
+  };
+
+  const schemaData = [localBusinessSchema, breadcrumbSchema];
 
   const heroImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1920";
   const contentImage1 = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800";
@@ -134,7 +174,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
 
       {/* Hero Local */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <img src={heroImage} alt={`Plano de Saúde em ${fullName}`} className="absolute inset-0 w-full h-full object-cover" />
+        <img src={heroImage} alt={`Plano de Saúde em ${fullName} - Atendimento na região`} className="absolute inset-0 w-full h-full object-cover" loading="eager" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f23]/90 to-[#1a1a2e]/80"></div>
         <div className="container mx-auto px-4 relative z-10 text-center text-white">
           <div className="inline-flex items-center gap-2 bg-[#22c55e] text-white px-4 py-1 rounded-full font-bold text-sm mb-6 animate-fade-in-up">
@@ -155,12 +195,14 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
         </div>
       </section>
 
-      {/* Breadcrumb */}
-      <div className="bg-gray-100 py-4 border-b">
-        <div className="container mx-auto px-4 text-sm text-gray-500">
-          <Link to="/" className="hover:text-[#22c55e]">Home</Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-800 font-bold">Planos em {fullName}</span>
+      <div className="bg-gray-100 border-b">
+        <div className="container mx-auto px-4">
+          <Breadcrumb 
+            items={[
+              { name: type === 'cidade' ? 'Cidades' : 'Bairros', href: '/sitemap' },
+              { name: `Plano de Saúde em ${fullName}` }
+            ]} 
+          />
         </div>
       </div>
 
@@ -184,7 +226,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
                 </div>
 
                 <div className="my-12">
-                  <img src={contentImage1} alt={`Saúde em ${fullName}`} className="w-full h-80 object-cover rounded-2xl shadow-lg mb-8" />
+                  <img src={contentImage1} alt={`Consultoria de planos de saúde em ${fullName}`} className="w-full h-80 object-cover rounded-2xl shadow-lg mb-8" loading="lazy" />
                   {sections.slice(1, 6).map((section, idx) => (
                     <div key={idx} className="mb-10">
                       <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
@@ -212,7 +254,7 @@ const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
 
                 <div className="my-12">
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-                      <img src={contentImage2} alt={`Família em ${fullName}`} className="w-full h-full object-cover rounded-2xl shadow-lg min-h-[300px]" />
+                      <img src={contentImage2} alt={`Família protegida com plano de saúde em ${fullName}`} className="w-full h-full object-cover rounded-2xl shadow-lg min-h-[300px]" loading="lazy" />
                       <div className="space-y-8">
                         {sections.slice(6, 9).map((section, idx) => (
                           <div key={idx}>

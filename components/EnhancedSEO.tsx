@@ -9,7 +9,7 @@ interface EnhancedSEOProps {
   keywords?: string;
   ogImage?: string;
   ogType?: string;
-  schemaData?: object;
+  schemaData?: object | object[];
   noindex?: boolean;
 }
 
@@ -17,13 +17,13 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
   title,
   description,
   canonicalUrl,
-  keywords = 'plano de saúde, convênio médico, saúde, Curitiba, EHS',
-  ogImage = 'https://ehsplanosdesaude.com.br/logo-dark.png',
+  keywords = 'planos de saúde, EHS saúde, cotação plano saúde, plano saúde acessível, convênio médico curitiba',
+  ogImage = `${COMPANY_INFO.siteUrl}/logo-dark.png`,
   ogType = 'website',
   schemaData,
   noindex = false,
 }) => {
-  const fullTitle = `${title} | EHS Corretora de Seguros`;
+  const fullTitle = `${title} | ${COMPANY_INFO.name}`;
   
   const defaultSchema = {
     "@context": "https://schema.org",
@@ -31,14 +31,14 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     "name": COMPANY_INFO.name,
     "description": description,
     "url": canonicalUrl,
-    "telephone": COMPANY_INFO.phone,
+    "telephone": COMPANY_INFO.phoneFormatted,
     "email": COMPANY_INFO.email,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Estrada Velha do Barigui, 407",
-      "addressLocality": "Curitiba",
-      "addressRegion": "PR",
-      "postalCode": "81250-460",
+      "streetAddress": COMPANY_INFO.address,
+      "addressLocality": COMPANY_INFO.city,
+      "addressRegion": COMPANY_INFO.state,
+      "postalCode": COMPANY_INFO.postalCode,
       "addressCountry": "BR"
     },
     "geo": {
@@ -62,8 +62,8 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     ],
     "priceRange": "$$",
     "sameAs": [
-      "https://www.instagram.com/ehscorretora",
-      "https://www.facebook.com/ehscorretora"
+      COMPANY_INFO.socialMedia.instagram,
+      COMPANY_INFO.socialMedia.facebook
     ]
   };
 
@@ -73,12 +73,18 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     "name": COMPANY_INFO.name,
     "url": COMPANY_INFO.siteUrl,
     "logo": `${COMPANY_INFO.siteUrl}/logo-dark.png`,
+    "description": "Planos de saúde completos com preços acessíveis. Cote agora via WhatsApp!",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": COMPANY_INFO.phone,
-      "contactType": "sales",
-      "availableLanguage": "Portuguese"
-    }
+      "telephone": COMPANY_INFO.phoneFormatted,
+      "contactType": "Customer Service",
+      "availableLanguage": "Portuguese",
+      "areaServed": "BR"
+    },
+    "sameAs": [
+      COMPANY_INFO.socialMedia.facebook,
+      COMPANY_INFO.socialMedia.instagram
+    ]
   };
 
   const breadcrumbSchema = {
@@ -100,6 +106,21 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
     ]
   };
 
+  const renderSchemaData = () => {
+    if (Array.isArray(schemaData)) {
+      return schemaData.map((schema, index) => (
+        <script key={`schema-${index}`} type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      ));
+    }
+    return (
+      <script type="application/ld+json">
+        {JSON.stringify(schemaData || defaultSchema)}
+      </script>
+    );
+  };
+
   return (
     <Helmet>
       <html lang="pt-BR" />
@@ -111,15 +132,15 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <meta name="googlebot" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
       <link rel="canonical" href={canonicalUrl} />
       
+      <meta property="og:type" content={ogType} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:type" content={ogType} />
+      <meta property="og:site_name" content={COMPANY_INFO.name} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:locale" content="pt_BR" />
-      <meta property="og:site_name" content={COMPANY_INFO.name} />
       
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
@@ -142,9 +163,7 @@ const EnhancedSEO: React.FC<EnhancedSEOProps> = ({
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       
-      <script type="application/ld+json">
-        {JSON.stringify(schemaData || defaultSchema)}
-      </script>
+      {renderSchemaData()}
       <script type="application/ld+json">
         {JSON.stringify(organizationSchema)}
       </script>

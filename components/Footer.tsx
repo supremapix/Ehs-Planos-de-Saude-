@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="text-[#22c55e] mt-1 shrink-0" size={18} />
-                <span className="text-sm hover:text-white transition-colors">{COMPANY_INFO.address}</span>
+                <span className="text-sm hover:text-white transition-colors">{COMPANY_INFO.fullAddress}</span>
               </li>
               <li className="flex items-center gap-3">
                 <Clock className="text-[#22c55e] shrink-0" size={18} />
