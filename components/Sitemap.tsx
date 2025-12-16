@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BAIRROS_CURITIBA, CIDADES_RMC, COMPANY_INFO } from '../constants';
 import EnhancedSEO from './EnhancedSEO';
+import { slugify } from '../utils/slugify';
 
 const Sitemap: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ const Sitemap: React.FC = () => {
               {CIDADES_RMC.sort().map((cidade, index) => (
                 <Link 
                   key={index} 
-                  to={`/cidade/${cidade.toLowerCase().replace(/ /g, '-')}`}
+                  to={`/cidade/${slugify(cidade)}`}
                   className="flex items-center gap-2 text-gray-600 hover:text-[#22c55e] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
                 >
                   <span className="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></span>
@@ -46,7 +47,7 @@ const Sitemap: React.FC = () => {
               {BAIRROS_CURITIBA.sort().map((bairro, index) => (
                 <Link 
                   key={index} 
-                  to={`/plano-de-saude/${bairro.toLowerCase().replace(/ /g, '-')}`}
+                  to={`/plano-de-saude/${slugify(bairro)}`}
                   className="flex items-center gap-2 text-gray-600 hover:text-[#22c55e] hover:bg-gray-50 p-2 rounded transition-colors text-sm"
                 >
                   <span className="w-1.5 h-1.5 bg-[#22c55e] rounded-full"></span>

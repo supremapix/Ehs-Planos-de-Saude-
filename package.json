@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prerender": "vite build && node scripts/prerender.js",
+    "generate-sitemap": "npx tsx scripts/generate-sitemap.ts",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,7 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "react-snap": "^1.23.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
@@ -21,5 +24,21 @@
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "destination": "dist",
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": true
+    },
+    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"],
+    "skipThirdPartyRequests": true,
+    "crawl": false,
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "fixWebpackChunksIssue": true
   }
 }

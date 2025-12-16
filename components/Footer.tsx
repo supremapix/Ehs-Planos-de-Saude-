@@ -3,6 +3,7 @@ import { Facebook, Instagram, Linkedin, MapPin, Phone, Clock, Mail, ChevronRight
 import { COMPANY_INFO, NAV_LINKS, BAIRROS_CURITIBA, CIDADES_RMC } from '../constants';
 import { generateWhatsAppLink } from '../services/whatsappService';
 import { Link } from 'react-router-dom';
+import { slugify } from '../utils/slugify';
 
 const Footer: React.FC = () => {
   const socialLink = generateWhatsAppLink();
@@ -77,12 +78,12 @@ const Footer: React.FC = () => {
           <h5 className="text-sm font-bold text-[#22c55e] mb-4 uppercase tracking-wider">Atendemos em toda região</h5>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs text-gray-500">
              {topBairros.map((bairro, i) => (
-               <Link key={i} to={`/plano-de-saude/${bairro.toLowerCase().replace(/ /g, '-')}`} className="hover:text-white transition-colors truncate">
+               <Link key={i} to={`/plano-de-saude/${slugify(bairro)}`} className="hover:text-white transition-colors truncate">
                  Planos em {bairro}
                </Link>
              ))}
              {topCidades.map((cidade, i) => (
-               <Link key={i} to={`/cidade/${cidade.toLowerCase().replace(/ /g, '-')}`} className="hover:text-white transition-colors truncate">
+               <Link key={i} to={`/cidade/${slugify(cidade)}`} className="hover:text-white transition-colors truncate">
                  Planos em {cidade}
                </Link>
              ))}

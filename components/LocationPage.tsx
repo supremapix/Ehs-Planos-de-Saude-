@@ -5,6 +5,7 @@ import { COMPANY_INFO, PLANS } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
 import ContactForm from './ContactForm';
 import EnhancedSEO from './EnhancedSEO';
+import { getOriginalName } from '../utils/slugify';
 
 interface LocationPageProps {
   type: 'bairro' | 'cidade';
@@ -13,15 +14,7 @@ interface LocationPageProps {
 const LocationPage: React.FC<LocationPageProps> = ({ type }) => {
   const { slug } = useParams<{ slug: string }>();
   
-  const formatName = (str: string | undefined) => {
-    if (!str) return '';
-    return str
-      .split('-')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-  };
-
-  const locationName = formatName(slug);
+  const locationName = slug ? getOriginalName(slug) : '';
   const locationType = type === 'bairro' ? 'Bairro' : 'Cidade';
   const fullName = `${locationName}`;
   const titleSEO = `Plano de Saúde em ${fullName} | Cotação Online EHS Saúde`;
