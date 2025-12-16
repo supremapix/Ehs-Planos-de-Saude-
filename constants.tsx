@@ -5,7 +5,7 @@ import { PlanType, FAQItem, StatItem } from './types';
 export const COMPANY_INFO = {
   name: 'EHS Corretora de Seguros',
   logo: '/logo-dark.png', 
-  logoWhite: '/logo.webp',
+  logoWhite: '/logo-white.png',
   phone: '(41) 99245-7239',
   whatsapp: '5541992457239', // Format for API
   whatsappDisplay: '(41) 99245-7239',
