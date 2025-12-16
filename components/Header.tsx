@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { NAV_LINKS, COMPANY_INFO } from '../constants';
 import { openWhatsApp } from '../services/whatsappService';
@@ -6,6 +7,10 @@ import { openWhatsApp } from '../services/whatsappService';
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  
+  const isHomePage = location.pathname === '/';
+  const useDarkTheme = isScrolled || !isHomePage;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +23,7 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 w-full z-40 transition-all duration-500 border-b ${
-        isScrolled 
+        useDarkTheme 
           ? 'bg-white/95 backdrop-blur-md shadow-sm border-gray-200 py-2' 
           : 'bg-transparent border-transparent py-4'
       }`}
@@ -27,7 +32,7 @@ const Header: React.FC = () => {
         {/* Logo Area */}
         <div className="flex items-center gap-2 group cursor-pointer shrink-0">
           <a href="/">
-            {isScrolled ? (
+            {useDarkTheme ? (
               <img src={COMPANY_INFO.logo} alt={COMPANY_INFO.name} className="h-10 md:h-12 lg:h-14 object-contain" />
             ) : (
                <div className="flex items-center">
@@ -45,12 +50,12 @@ const Header: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 className={`text-xs lg:text-sm font-medium transition-colors relative group py-2 whitespace-nowrap ${
-                  isScrolled ? 'text-gray-700 hover:text-[#22c55e]' : 'text-white/90 hover:text-white'
+                  useDarkTheme ? 'text-gray-700 hover:text-[#22c55e]' : 'text-white/90 hover:text-white'
                 }`}
               >
                 {link.name}
                 <span className={`absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${
-                  isScrolled ? 'bg-[#22c55e]' : 'bg-[#22c55e]'
+                  useDarkTheme ? 'bg-[#22c55e]' : 'bg-[#22c55e]'
                 }`}></span>
               </a>
             ))}
@@ -69,7 +74,7 @@ const Header: React.FC = () => {
         {/* Mobile Toggle */}
         <button
           className={`md:hidden p-2 rounded-lg transition-colors ${
-            isScrolled ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
+            useDarkTheme ? 'text-gray-800 hover:bg-gray-100' : 'text-white hover:bg-white/10'
           }`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
