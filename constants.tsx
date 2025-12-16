@@ -4,10 +4,10 @@ import { PlanType, FAQItem, StatItem } from './types';
 
 export const COMPANY_INFO = {
   name: 'EHS Corretora de Seguros',
-  logo: '/logo-dark.png', 
+  logo: '/logo-dark.png',
   logoWhite: '/logo-white.png',
   phone: '(41) 99245-7239',
-  whatsapp: '5541992457239', // Format for API
+  whatsapp: '5541992457239',
   whatsappDisplay: '(41) 99245-7239',
   address: 'Estrada Velha do Barigui, 407 - Cidade Industrial de Curitiba - PR, 81250-460',
   schedule: 'Seg-Sex: 08h-18h | Sáb: 08h-12h',
