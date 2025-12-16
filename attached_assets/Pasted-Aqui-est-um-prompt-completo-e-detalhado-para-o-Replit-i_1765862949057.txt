@@ -1,0 +1,305 @@
+Aqui está um prompt completo e detalhado para o Replit implementar SEO e Schema Markup:
+
+---
+
+**PROMPT PARA REPLIT - IMPLEMENTAÇÃO COMPLETA DE SEO E SCHEMA MARKUP**
+
+Preciso que você implemente SEO completo e Schema Markup estruturado em TODAS as páginas do site https://www.ehssaude.com.br
+
+## 1. META TAGS ESSENCIAIS (todas as páginas)
+
+Para cada página, adicione no `<head>`:
+
+```html
+<!-- Meta Tags Básicas -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="[descrição específica de 150-160 caracteres]">
+<meta name="keywords" content="planos de saúde, EHS saúde, cotação plano saúde, plano saúde acessível">
+<meta name="author" content="EHS Planos de Saúde">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="[URL da página específica]">
+
+<!-- Open Graph (Facebook/WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="[Título da página]">
+<meta property="og:description" content="[Descrição da página]">
+<meta property="og:url" content="[URL completa da página]">
+<meta property="og:site_name" content="EHS Planos de Saúde">
+<meta property="og:image" content="https://www.ehssaude.com.br/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[Título da página]">
+<meta name="twitter:description" content="[Descrição da página]">
+<meta name="twitter:image" content="https://www.ehssaude.com.br/og-image.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+```
+
+## 2. SCHEMA MARKUP JSON-LD (adicionar antes do </head>)
+
+### Página Inicial (Home):
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EHS Planos de Saúde",
+  "url": "https://www.ehssaude.com.br",
+  "logo": "https://www.ehssaude.com.br/logo.png",
+  "description": "Planos de saúde completos com preços acessíveis. Cote agora via WhatsApp!",
+  "telephone": "+55-XX-XXXXX-XXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://www.facebook.com/ehssaude",
+    "https://www.instagram.com/ehssaude"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+55-XX-XXXXX-XXXX",
+    "contactType": "Customer Service",
+    "availableLanguage": "Portuguese"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EHS Planos de Saúde",
+  "url": "https://www.ehssaude.com.br",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.ehssaude.com.br/busca?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Planos de Saúde",
+  "provider": {
+    "@type": "Organization",
+    "name": "EHS Planos de Saúde"
+  },
+  "areaServed": "BR",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Planos de Saúde",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plano Individual"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plano Familiar"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Plano Empresarial"
+        }
+      }
+    ]
+  }
+}
+</script>
+```
+
+### Página de Planos:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Product",
+        "name": "Plano Individual",
+        "description": "Plano de saúde individual com cobertura completa",
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "BRL",
+          "lowPrice": "XXX.XX"
+        }
+      }
+    }
+  ]
+}
+</script>
+```
+
+### Página de Contato:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "EHS Planos de Saúde",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-XX-XXXXX-XXXX",
+      "contactType": "Customer Service",
+      "areaServed": "BR",
+      "availableLanguage": ["Portuguese"]
+    }
+  }
+}
+</script>
+```
+
+### FAQ (se houver):
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Como faço para cotar um plano?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Você pode cotar diretamente via WhatsApp clicando no botão de contato."
+      }
+    }
+  ]
+}
+</script>
+```
+
+## 3. ESTRUTURA HTML SEMÂNTICA
+
+Certifique-se de que TODAS as páginas usam:
+
+```html
+<header>
+  <nav aria-label="Navegação principal">
+    <!-- Menu -->
+  </nav>
+</header>
+
+<main>
+  <article>
+    <h1>Título Principal (apenas UM h1 por página)</h1>
+    <section>
+      <h2>Subtítulo</h2>
+      <!-- Conteúdo -->
+    </section>
+  </article>
+</main>
+
+<footer>
+  <!-- Rodapé -->
+</footer>
+```
+
+## 4. HIERARQUIA DE TÍTULOS
+
+- **H1**: Apenas UM por página (título principal)
+- **H2**: Seções principais
+- **H3**: Subseções
+- Nunca pule níveis (não vá de H1 para H3)
+
+## 5. ALT TEXT EM IMAGENS
+
+Todas as imagens devem ter:
+```html
+<img src="imagem.jpg" alt="Descrição clara e relevante da imagem" loading="lazy">
+```
+
+## 6. BREADCRUMBS
+
+Adicione breadcrumbs em páginas internas:
+
+```html
+<nav aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="/">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">Página Atual</span>
+      <meta itemprop="position" content="2" />
+    </li>
+  </ol>
+</nav>
+```
+
+## 7. SITEMAP.XML
+
+Crie um arquivo `sitemap.xml` na raiz:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.ehssaude.com.br/</loc>
+    <lastmod>2024-12-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Adicione todas as páginas -->
+</urlset>
+```
+
+## 8. ROBOTS.TXT
+
+Crie `robots.txt` na raiz:
+
+```
+User-agent: *
+Allow: /
+Sitemap: https://www.ehssaude.com.br/sitemap.xml
+```
+
+## CHECKLIST FINAL:
+
+- [ ] Meta tags em TODAS as páginas
+- [ ] Schema Markup apropriado para cada tipo de página
+- [ ] H1 único por página
+- [ ] Alt text em todas as imagens
+- [ ] HTML semântico (header, main, footer, nav, article, section)
+- [ ] Breadcrumbs em páginas internas
+- [ ] Sitemap.xml criado
+- [ ] Robots.txt criado
+- [ ] URLs canônicas
+- [ ] Open Graph completo
+- [ ] Velocidade otimizada (lazy loading)
+
+**IMPORTANTE**: Implemente TUDO listado acima e confirme quando concluído!
